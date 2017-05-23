@@ -141,7 +141,7 @@ $().ready(function () {
 });
 
 $("#login-button").click(function () {
-    $('#register-li').removeClass('s');
+    $('#register-li').removeClass('active');
     $('#register-tab').removeClass('active');
     $('#login-tab').addClass('active');
     $('#login-li').addClass('active');
@@ -180,6 +180,8 @@ $("#user-type-2").click(function () {
     $('#email_div').hide();
     //alert($("input[name='optionsRadios']:checked").val());
 });
+
 $("#close-modal").click(function () {
     location.reload();
 });
+
