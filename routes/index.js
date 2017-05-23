@@ -45,7 +45,6 @@ router.post("/",function(req, res) {
 		if(result[0]['password'] == password){
 			var user = {'username':username};
 			req.session.user = user;//保存用户session信息
-			
 			if(type == "user")
 				res.redirect('/main');
 			else if(type == "admin")

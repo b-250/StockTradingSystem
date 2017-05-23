@@ -12,6 +12,10 @@ var users = require('./routes/users');
 var regist = require('./routes/regist');
 var main = require('./routes/main');
 var mainManage = require('./routes/mainManage');
+var mainpage = require('./routes/mainpage');
+var password = require('./routes/password');
+var traderecord = require('./routes/traderecord');
+var discard = require('./routes/discard');
 var tradeManage_stock = require('./routes/tradeManage_stock');
 var tradeManage_user = require('./routes/tradeManage_user');
 
@@ -19,8 +23,8 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.engine('.html',ejs.__express);
-app.set('view engine', 'html');
+app.engine('.ejs',ejs.__express);
+app.set('view engine', 'ejs');
 // app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
@@ -44,6 +48,10 @@ app.use('/users', users);
 app.use('/regist', regist);
 app.use('/main', main);
 app.use('/mainManage', mainManage);
+app.use('/mainpage', mainpage);
+app.use('/traderecord', traderecord);
+app.use('/password', password);
+app.use('/discard', discard);
 app.use('/tradeManage_stock', tradeManage_stock);
 app.use('/tradeManage_user', tradeManage_user);
 

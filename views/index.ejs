@@ -11,7 +11,7 @@
     <!-- Bootstrap 3.3.6 -->
     <link rel="stylesheet" href="/AdminLTE-2.3.11/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="/AdminLTE-2.3.11/dist/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="/AdminLTE-2.3.11/dist/css/ionicons.min.css">
     <!-- Theme style -->
@@ -128,10 +128,10 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="/mainpage" class="btn btn-default btn-flat">个人中心</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="#" class="btn btn-default btn-flat">登出</a>
                                     </div>
                                 </li>
                             </ul>
@@ -372,7 +372,7 @@
                                 </div>
                                 <div class="form-group col-md-12 no-padding">
                                     <label class="warn col-md-9 col-md-offset-3" id="login_error" style="color: red">
-
+                                    <%errMsg%>
                                     </label>
                                     <script>
                                         <% if(errMsg==" * 用户名或密码错误"){ %>
