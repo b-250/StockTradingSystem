@@ -150,7 +150,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">x</button>
+                    <button type="button" class="close" data-dismiss="modal" id="close-modal" aria-label="Close">x</button>
                     <ul class="nav nav-tabs" role="tablist">
                         <li id="login-li"><a href="#login-tab" role="tab" data-toggle="tab">登陆</a></li>
                         <li id="register-li"><a href="#register-tab" role="tab" data-toggle="tab">开户</a></li>
@@ -175,7 +175,7 @@
                                     </label>
                                     <script>
                                         <% if(errMsg==" * 用户名已存在"){ %>
-                                            $('#login-modal').modal('show');
+                                            $('#login-modal').modal(backdrop: 'static');
                                             $('#login-tab').removeClass('active');
                                             $('#login-li').removeClass('active');
                                             $('#register-li').addClass('active');
@@ -376,13 +376,15 @@
                                     </label>
                                     <script>
                                         <% if(errMsg==" * 用户名或密码错误"){ %>
-                                            $('#login-modal').modal('show');
+                                            $('#login-modal').modal(backdrop: 'static');
                                             $('#register-li').removeClass('active');
                                             $('#register-tab').removeClass('active');
                                             $('#login-tab').addClass('active');
                                             $('#login-li').addClass('active');
                                             $("#login_error").html(" * 用户名或密码错误");
-                                        <%} %>
+                                        <%} else if(errMsg=="1"){%>
+                                            $('#login_error').text("");
+                                        <%}%>
                                     </script>
                                 </div>
                                 <div class="form-group col-md-12">
