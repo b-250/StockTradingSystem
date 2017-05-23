@@ -51,7 +51,7 @@ router.post('/',function(req, res) {
    //检查用户名是否已经存在
     newUser.userNum(newUser.username, function (err, results) {
       if (results != null && results[0]['num'] > 0) {
-        err = '用户名已存在';
+        err = ' * 用户名已存在';
       }
 
       if (err) {

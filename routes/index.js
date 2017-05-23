@@ -37,7 +37,7 @@ router.post("/",function(req, res) {
 	}
 	if(result == ''){
         //res.locals.status = "fail";
-		res.render('index', {errMsg: '用户不存在' });
+		res.render('index', {errMsg: ' * 用户名或密码错误' });
 		return;
 	}
 	else{
@@ -53,7 +53,7 @@ router.post("/",function(req, res) {
 		}
 		else{
 			//res.locals.status = "fail";
-			res.render('index', {errMsg: '密码有误' });
+			res.render('index', {errMsg: ' * 用户名或密码错误' });
 		}
 	}
 	});

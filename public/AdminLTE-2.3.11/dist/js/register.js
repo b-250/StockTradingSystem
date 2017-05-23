@@ -145,6 +145,7 @@ $("#login-button").click(function () {
     $('#register-tab').removeClass('active');
     $('#login-tab').addClass('active');
     $('#login-li').addClass('active');
+    errMsg = "";
 });
 
 $("#register-button").click(function () {
@@ -152,6 +153,7 @@ $("#register-button").click(function () {
     $('#login-li').removeClass('active');
     $('#register-li').addClass('active');
     $('#register-tab').addClass('active');
+    errMsg = "";
 });
 
 $("#user-type-1").click(function () {
