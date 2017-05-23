@@ -33,3 +33,31 @@ $().ready(function () {
     });
 
 });
+
+$("#login-btn").click(function () {
+    var log_type = $("input[name='loginType']:checked").val();
+    //alert(log_type);
+    $.post("/",
+        {
+            username: $('#login_bond_id').val(),
+            password: $('#login_password').val(),
+            loginType: log_type
+        },
+        function (data,status) {
+            if (data.code==0){
+                //alert("提示：" + data.msg);
+                $('#login-modal').modal('show');
+                $('#login-tab').removeClass('active');
+                $('#login-li').removeClass('active');
+                $('#register-li').addClass('active');
+                $('#register-tab').addClass('active');
+                $("#login_error").text(" * 用户名或密码错误");
+            }
+            else if (data.code ==1){
+                $("#login-button").hide();
+                $("#register-button").hide();
+                alert("注册成功");
+            }
+        }
+    )
+});

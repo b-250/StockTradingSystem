@@ -1,8 +1,18 @@
 var express = require('express');
-var router = express.Router();
 var User = require("../models/user.js");
 var Admin = require("../models/admin.js");
-
+var router = express.Router();
+/*
+ var cookieParser = required('cokie-parser');
+ var router = express.Router();
+ router.use(cookieParser)();
+ router.use(session({
+ secret: '12345',
+ name: 'login_session',
+ cokie: {maxAge: 80000},
+ resave : false,
+ saveUninitialized: true
+ }));*/
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	res.render('index',{ errMsg: '' });
@@ -13,6 +23,7 @@ router.post("/",function(req, res) {
 	var username = req.body.username;
 	var password = req.body.password;
 	var type	 = req.body.loginType;
+	console.log(username);
 	if(type == "user")
 		var login = new User({
 			username : username,
@@ -36,8 +47,10 @@ router.post("/",function(req, res) {
 		return;
 	}
 	if(result == ''){
+	    var user = {'username':''}
         //res.locals.status = "fail";
-		res.render('index', {errMsg: ' * 用户名或密码错误' });
+        res.send({code: 0, msg: ' * 用户名或密码错误', userinfo : user});
+		//res.render('index', {errMsg: ' * 用户名或密码错误' });
 		return;
 	}
 	else{
@@ -45,9 +58,9 @@ router.post("/",function(req, res) {
 		if(result[0]['password'] == password){
 			var user = {'username':username};
 			req.session.user = user;//保存用户session信息
-			
 			if(type == "user")
-				res.redirect('/main');
+			    res.send({code:1, msg:'登录成功', userinfo : user});
+			    //res.redirect('/main');
 			else if(type == "admin")
 				res.redirect('/mainManage');
 		}
@@ -56,6 +69,7 @@ router.post("/",function(req, res) {
 			res.render('index', {errMsg: ' * 用户名或密码错误' });
 		}
 	}
+	res.end();
 	});
 });
 

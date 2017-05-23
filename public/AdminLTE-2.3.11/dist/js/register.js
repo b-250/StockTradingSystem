@@ -145,7 +145,6 @@ $("#login-button").click(function () {
     $('#register-tab').removeClass('active');
     $('#login-tab').addClass('active');
     $('#login-li').addClass('active');
-    errMsg = "1";
 });
 
 $("#register-button").click(function () {
@@ -153,7 +152,6 @@ $("#register-button").click(function () {
     $('#login-li').removeClass('active');
     $('#register-li').addClass('active');
     $('#register-tab').addClass('active');
-    errMsg = "1";
 });
 
 $("#user-type-1").click(function () {
@@ -180,8 +178,8 @@ $("#user-type-2").click(function () {
     $('#email_div').hide();
     //alert($("input[name='optionsRadios']:checked").val());
 });
-
+/*
 $("#close-modal").click(function () {
     location.reload();
-});
+});*/
 
