@@ -59,7 +59,7 @@ $("#login-btn").click(function () {
                 $('#login-modal').modal('hide');
                 $("#login-button").text("");
                 $("#register-button").text("");
-                alert("注册成功");
+                alert("登录成功");
             }
         }
     )
