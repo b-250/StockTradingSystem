@@ -23,7 +23,7 @@ var user_valid = function () {
     $.get("/login",
           function (result) {
                 user_info = result.userinfo;
-                alert(user_info.username);
+                //alert(user_info.username);
                 if(user_info.username!=""){
                     $("#login-button").text("");
                     $("#register-button").text("");
