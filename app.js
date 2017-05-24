@@ -41,7 +41,7 @@ app.use(session({
  }));
 
 app.use('/', index);
-app.use('/login',login)
+app.use('/login',login);
 app.use('/users', users);
 app.use('/regist', regist);
 app.use('/main', main);
