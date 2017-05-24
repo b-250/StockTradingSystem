@@ -148,8 +148,8 @@
                             </ul>
                         </li>
 
-                        <li data-toggle="modal" data-target="#login-modal" id="login-button"><a href="#">登录</a></li>
-                        <li data-toggle="modal" data-target="#login-modal" id="register-button"><a href="#">开户</a></li>
+                        <li data-toggle="modal" data-target="#login-modal" id="login-button"><a>登录</a></li>
+                        <li data-toggle="modal" data-target="#login-modal" id="register-button"><a>开户</a></li>
                     </ul>
                 </div>
                 <!-- /.navbar-custom-menu -->
@@ -353,7 +353,7 @@
                             </form>
                         </div>
                     <div class="tab-pane" id="login-tab">
-                            <form class="form col-md-12" id="login_form"  onsubmit="return false;">
+                            <form class="form col-md-12" id="login_form" method="post">
                                 <div><br></div>
                                 <div><br></div>
                                 <div><br></div>
@@ -381,18 +381,6 @@
                                 </div>
                                 <div class="form-group col-md-12 no-padding">
                                     <label class="warn col-md-9 col-md-offset-3" id="login_error" style="color: red">
-                                    <%errMsg%>
-                                    </label>
-                                    <script>
-                                        <% if(errMsg==" * 用户名或密码错误"){ %>
-                                            $('#login-modal').modal('show');
-                                            $('#register-li').removeClass('active');
-                                            $('#register-tab').removeClass('active');
-                                            $('#login-tab').addClass('active');
-                                            $('#login-li').addClass('active');
-                                            $("#login_error").html(" * 用户名或密码错误");
-                                        <%}%>
-                                    </script>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <div class="col-md-3 no-padding text-right">

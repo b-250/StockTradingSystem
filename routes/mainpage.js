@@ -8,8 +8,8 @@ router.get('/', function(req, res) {
 		username : 'Sakura'
 	});
 	login.userInfo(function(err,result){
+		console.log(result);
 		res.render('mainpage', {data: result});
-
 	});
   
 });
