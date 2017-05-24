@@ -25,7 +25,7 @@ pool.on('connnection',function(connection){
 function User(user){
   this.username = user.username;
   this.password = user.password;
-  this.type = user.type;
+  this.usertype = user.type;
   this.status = user.status;
   this.id_card = user.id_card;
   this.name = user.name;
