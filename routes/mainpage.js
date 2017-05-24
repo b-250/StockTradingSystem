@@ -5,12 +5,12 @@ var User = require("../models/user.js");
 /* GET home page. */
 router.get('/', function(req, res) {
 	var login = new User({
-		username : 'lianyuzhe',
-		password : 'lyz.637631'
+		username : '12345',
+		password : '123456'
 	});
 	login.userInfo(function(err,result){
+		console.log(result);
 		res.render('mainpage', {data: result});
-
 	});
   
 });

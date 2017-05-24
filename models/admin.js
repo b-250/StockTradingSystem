@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 
-//´´½¨Á¬½Ó³Ø createPool(Object)
-// ObjectºÍcreateConnection²ÎÊýÏàÍ¬¡£
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ createPool(Object)
+// Objectï¿½ï¿½createConnectionï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½
 /*var pool = mysql.createPool({
       host : '112.74.124.145',
       user : 'group1',
@@ -12,11 +12,11 @@ var mysql = require('mysql');
 var pool = mysql.createPool({
       host : '127.0.0.1',
       user : 'root',
-      password :'lsy960927',
+      password :'5438',
       database:'nodedb',
       port : 3306
   });
-//¿ÉÒÔ¼àÌýconnectionÊÂ¼þ£¬²¢ÉèÖÃsessionÖµ
+//ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½connectionï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sessionÖµ
 pool.on('connnection',function(connection){
   console.log("pool on");
   connection.query('SET SESSION auto_increment_increment=1')
@@ -29,7 +29,7 @@ function Admin(admin){
   this.phone 	= admin.phone;
 }
 
-//¸ù¾ÝÓÃ»§ÃûµÃµ½ÓÃ»§ÊýÁ¿
+//ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 Admin.prototype.userNum = function(username, callback) {
   pool.getConnection(function(err,connection){
     console.log("getConnection");

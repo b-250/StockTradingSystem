@@ -4,6 +4,39 @@
 $().ready(function () {
 
     $("#login_form").validate({
+        submitHandler : function () {
+            var log_type = $("input[name='loginType']:checked").val();
+            //alert(log_type);
+            $.post("/login",
+                {
+                    username: $('#login_bond_id').val(),
+                    password: $('#login_password').val(),
+                    loginType: log_type
+                },
+                function (result) {
+                    //alert("code="+result.code);
+                    if (result.code==0){
+                        //alert("提示：" + result.msg);
+                        $('#login-modal').modal('show');
+                        $('#register-li').removeClass('active');
+                        $('#register-tab').removeClass('active');
+                        $('#login-tab').addClass('active');
+                        $('#login-li').addClass('active');
+                        $("#login_error").html(" * 用户名或密码错误");
+                        $("#user-menu").hide();
+                        //alert("done");
+                    }
+                    else if (result.code ==1){
+                        $('#login-modal').modal('hide');
+                        $("#login-button").text("");
+                        $("#register-button").text("");
+                        $("#user-menu").show();
+                        $("#user-menu-name").text(result.userinfo.username);
+                        alert("登录成功");
+                    }
+                }
+            )
+        },
         rules: {
             username: {
                 required: true,
@@ -33,7 +66,7 @@ $().ready(function () {
     });
 
 });
-
+/*
 $("#login-btn").click(function () {
     var log_type = $("input[name='loginType']:checked").val();
     //alert(log_type);
@@ -66,4 +99,4 @@ $("#login-btn").click(function () {
             }
         }
     )
-});
+});*/
