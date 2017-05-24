@@ -19,13 +19,29 @@ jQuery.validator.addMethod(
     },
     $.validator.format("请输入正确的信息")
 );
+var user_valid = function () {
+    $.get("/login",
+          function (result) {
+                user_info = result.userinfo;
+                alert(user_info.username);
+                if(user_info.username!=""){
+                    $("#login-button").text("");
+                    $("#register-button").text("");
+                    $("#user-menu").show();
+                    $("#user-menu-name").text(user_info.username);
+                }
+                else{
+                    $("#user-menu").hide();
+                }
+          });
+}
 
 $().ready(function () {
     $('#manager_id_card_div').hide();
     $('#manager_name_div').hide();
     $('#manager_phone_div').hide();
     $('#business_license_div').hide();
-
+    user_valid();
 
     $("#register_form").validate({
         rules: {

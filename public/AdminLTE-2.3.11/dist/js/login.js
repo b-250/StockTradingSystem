@@ -37,7 +37,7 @@ $().ready(function () {
 $("#login-btn").click(function () {
     var log_type = $("input[name='loginType']:checked").val();
     //alert(log_type);
-    $.post("/",
+    $.post("/login",
         {
             username: $('#login_bond_id').val(),
             password: $('#login_password').val(),
@@ -53,12 +53,15 @@ $("#login-btn").click(function () {
                 $('#login-tab').addClass('active');
                 $('#login-li').addClass('active');
                 $("#login_error").html(" * 用户名或密码错误");
+                $("#user-menu").hide();
                 //alert("done");
             }
             else if (result.code ==1){
                 $('#login-modal').modal('hide');
                 $("#login-button").text("");
                 $("#register-button").text("");
+                $("#user-menu").show();
+                $("#user-menu-name").text(result.userinfo.username);
                 alert("登录成功");
             }
         }
