@@ -43,19 +43,22 @@ $("#login-btn").click(function () {
             password: $('#login_password').val(),
             loginType: log_type
         },
-        function (data,status) {
-            if (data.code==0){
-                //alert("提示：" + data.msg);
+        function (result) {
+            //alert("code="+result.code);
+            if (result.code==0){
+                //alert("提示：" + result.msg);
                 $('#login-modal').modal('show');
-                $('#login-tab').removeClass('active');
-                $('#login-li').removeClass('active');
-                $('#register-li').addClass('active');
-                $('#register-tab').addClass('active');
-                $("#login_error").text(" * 用户名或密码错误");
+                $('#register-li').removeClass('active');
+                $('#register-tab').removeClass('active');
+                $('#login-tab').addClass('active');
+                $('#login-li').addClass('active');
+                $("#login_error").html(" * 用户名或密码错误");
+                //alert("done");
             }
-            else if (data.code ==1){
-                $("#login-button").hide();
-                $("#register-button").hide();
+            else if (result.code ==1){
+                $('#login-modal').modal('hide');
+                $("#login-button").text("");
+                $("#register-button").text("");
                 alert("注册成功");
             }
         }
