@@ -167,7 +167,11 @@ desired effect
                 </tr>
                 <tr>
                   <th> 账户类型</th>
-                  <td> <%= data[0].usertype %> </td>
+                  <% if (data[0].usertype == "0") {%>
+                    <td> 自然人 </td>
+                  <% }else{ %>
+                    <td> 法人 </td>
+                  <% } %>
                 </tr>
                 <tr>
                   <th> 姓名</th>
@@ -175,7 +179,11 @@ desired effect
                 </tr>
                 <tr>
                   <th> 性别</th>
-                  <td> <%= data[0].gender %> </td>
+                  <% if (data[0].gender == "0") {%>
+                    <td> 男 </td>
+                  <% }else{ %>
+                    <td> 女 </td>
+                  <% } %>
                 </tr>
                 <tr>
                   <th> 身份证号</th>

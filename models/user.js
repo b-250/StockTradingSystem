@@ -25,7 +25,7 @@ pool.on('connnection',function(connection){
 function User(user){
   this.username = user.username;
   this.password = user.password;
-  this.usertype = user.type;
+  this.type = user.type;
   this.status = user.status;
   this.id_card = user.id_card;
   this.name = user.name;
@@ -47,12 +47,12 @@ User.prototype.userSave = function save(callback){
   var user = {
     username : this.username,
     password : this.password,
-    type : 1,
+    type : this.type,
     status : "init",
-    id_card : 1,
-    name : 1,
-    gender : 1,
-    phone : 1,
+    id_card : this.id_card,
+    name : this.name,
+    gender : this.gender,
+    phone : this.phone,
     email : this.email,
     address : this.address,
     occupation : this.occupation,

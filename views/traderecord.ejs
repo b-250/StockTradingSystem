@@ -194,6 +194,19 @@ desired effect
                   <th> 成交金额 </th>
                   <th> 买卖类型 </th>
                 </tr> 
+                <% for(var i=0;i<data.length;i++){ %>
+                  <tr>
+                    <td> <%= data[i].code %></td>
+                    <td> <%= data[i].date %> </td>
+                    <td> <%= data[i].time %> </td>
+                    <td> <%= data[i].price %> </td>
+                    <td> <%= data[i].change %> </td>
+                    <td> <%= data[i].volume %> </td>
+                    <td> <%= data[i].amount %> </td>
+                    <td> <%= data[i].type %> </td>
+                  </tr> 
+
+                <%}%>
               </tbody>
             </table>
           </div>
