@@ -8,6 +8,7 @@ var session = require('express-session');
 var ejs = require('ejs');
 
 var index = require('./routes/index');
+var login = require('./routes/login');
 var users = require('./routes/users');
 var regist = require('./routes/regist');
 var main = require('./routes/main');
@@ -40,6 +41,7 @@ app.use(session({
  }));
 
 app.use('/', index);
+app.use('/login',login)
 app.use('/users', users);
 app.use('/regist', regist);
 app.use('/main', main);

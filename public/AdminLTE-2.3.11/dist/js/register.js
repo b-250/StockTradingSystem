@@ -178,8 +178,13 @@ $("#user-type-2").click(function () {
     $('#email_div').hide();
     //alert($("input[name='optionsRadios']:checked").val());
 });
-/*
+
 $("#close-modal").click(function () {
-    location.reload();
-});*/
+    $("#login_error").html("");
+    $("#login_password").text("");
+    $("#bond_id").text("");
+    $("#password1").text("");
+    $("#password2").text("");
+    $("#register_error").html("");
+});
 

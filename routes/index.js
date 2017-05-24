@@ -13,6 +13,7 @@ var router = express.Router();
  resave : false,
  saveUninitialized: true
  }));*/
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	res.render('index',{ errMsg: '' });
@@ -49,9 +50,9 @@ router.post("/",function(req, res) {
 	if(result == ''){
 	    var user = {'username':''}
         //res.locals.status = "fail";
+        console.log('* 用户名或密码错误');
         res.send({code: 0, msg: ' * 用户名或密码错误', userinfo : user});
 		//res.render('index', {errMsg: ' * 用户名或密码错误' });
-		return;
 	}
 	else{
 		//判断用户密码是否填写正确  演示没做加密，等有时间再加
@@ -69,7 +70,9 @@ router.post("/",function(req, res) {
 			res.render('index', {errMsg: ' * 用户名或密码错误' });
 		}
 	}
+	console.log('before end');
 	res.end();
+	console.log('res end');
 	});
 });
 
