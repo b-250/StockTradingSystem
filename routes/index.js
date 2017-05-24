@@ -2,17 +2,6 @@ var express = require('express');
 var User = require("../models/user.js");
 var Admin = require("../models/admin.js");
 var router = express.Router();
-/*
- var cookieParser = required('cokie-parser');
- var router = express.Router();
- router.use(cookieParser)();
- router.use(session({
- secret: '12345',
- name: 'login_session',
- cokie: {maxAge: 80000},
- resave : false,
- saveUninitialized: true
- }));*/
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -44,11 +33,13 @@ router.post("/",function(req, res) {
 	login.userInfo(function(err,result){
 	if(err){		
 		//res.locals.status = "fail";
-		res.render('index', {errMsg: err });
+        var user = {'username':''};
+        res.send({code: 0, msg: err, userinfo : user});
+        //res.render('index', {errMsg: err });
 		return;
 	}
 	if(result == ''){
-	    var user = {'username':''}
+	    var user = {'username':''};
         //res.locals.status = "fail";
         console.log('* 用户名或密码错误');
         res.send({code: 0, msg: ' * 用户名或密码错误', userinfo : user});
@@ -67,12 +58,14 @@ router.post("/",function(req, res) {
 		}
 		else{
 			//res.locals.status = "fail";
-			res.render('index', {errMsg: ' * 用户名或密码错误' });
+            var user = {'username':''};
+            //res.locals.status = "fail";
+            console.log('* 用户名或密码错误');
+            res.send({code: 0, msg: ' * 用户名或密码错误', userinfo : user});
+			//res.render('index', {errMsg: ' * 用户名或密码错误' });
 		}
 	}
-	console.log('before end');
 	res.end();
-	console.log('res end');
 	});
 });
 
