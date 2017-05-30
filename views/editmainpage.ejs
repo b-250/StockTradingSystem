@@ -159,73 +159,104 @@ desired effect
         </div>
         <div class="box-body">
           <div class="col-md-10">
-            <table class = "table table-hover">
-              <tbody>
-                <tr>
-                  <th> 用户名 </th>
-                  <td> <%= data[0].username %> </td>
-                </tr>
-                <tr>
-                  <th> 账户类型</th>
-                  <td> <%= data[0].usertype %> </td>
-                </tr>
-                <tr>
-                  <th> 姓名</th>
-                  <td> <%= data[0].name %> </td>
-                </tr>
-                <tr>
-                  <th> 性别</th>
-                  <td> <%= data[0].gender %> </td>
-                </tr>
-                <tr>
-                  <th> 身份证号</th>
-                  <td> <%= data[0].id_card %> </td>
-                </tr>
-                <tr>
-                  <th> 联系电话</th>
-                  <td> <%= data[0].phone %> </td>
-                </tr>
+            <form action="/regist" method="post" class="form col-md-12" id="register_form">
+              <table class = "table table-hover">
+                <tbody>
+                  <tr>
+                    <th> 用户名 </th>
+                     <td> <%= data[0].username %> </td>
+                  </tr>
 
-                <tr>
-                  <th> 邮箱</th>
-                  <td> <%= data[0].email %> </td>
-                </tr>
-                <tr>
-                  <th> 地址</th>
-                  <td> <%= data[0].address %> </td>
-                </tr>
-                <tr>
-                  <th> 职业</th>
-                  <td> <%= data[0].occupation %> </td>
-                </tr>
-                <tr>
-                  <th> 教育水平</th>
-                  <td> <%= data[0].education %> </td>
-                </tr>
-                <tr>
-                  <th> 工作地址</th>
-                  <td> <%= data[0].workplace %> </td>
-                </tr>
-                
-                <tr>
-                  <th> 经理姓名</th>
-                  <td> <%= data[0].manager_name %> </td>
-                </tr>
-                <tr>
-                  <th> 经理身份证号</th>
-                  <td> <%= data[0].manager_id_card %> </td>
-                </tr>
-                <tr>
-                  <th> 经理联系电话</th>
-                  <td> <%= data[0].manager_phone %> </td>
-                </tr>
-              </tbody>
-            </table>
+                  <tr>
+                    <th> 账户类型</th>
+                    <% if (data[0].usertype == "0") {%>
+                    <td> 自然人 </td>
+                  <% }else{ %>
+                    <td> 法人 </td>
+                  <% } %>
+                  </tr>
+                  <tr>
+                    <th> 姓名</th>
+                    <td style = "padding:0px 0px;"> <input type="text" class="form-control" id="name" name="name" placeholder="请输入您的姓名" value = "<%= data[0].name %>"> </td>
+                    <!-- <td> <%= data[0].name %> </td> -->
+                  </tr>
+                  <tr>
+                    <th> 性别</th>
+                    <td> <div id="gender">
+                                        <label class="radio-inline" style="color: rgba(153,153,153,1)" >
+                                            <input type="radio" id="male" value="0" name="gender" checked> 男
+                                        </label>
+                                        <label class="radio-inline" style="color: rgba(153,153,153,1)">
+                                            <input type="radio" id="female" value="1" name="gender"> 女
+                                        </label>
+                                    </div> </td>
+                  </tr>
+                  <tr>
+                    <th> 身份证号</th>
+                    <td> <%= data[0].id_card %> </td>
+                  </tr>
+                  <tr>
+                    <th> 联系电话</th>
+                    <td style = "padding:0px 0px;"> <input type="text" class="form-control" id="name" name="name" placeholder="请输入您的姓名" value = "<%= data[0].phone %>"> </td>
+                  </tr>
+                  
+                  <% if (data[0].usertype == "0") {%>
+                  <tr>
+                    <th> 邮箱</th>
+                    <td style = "padding:0px 0px;"> <input type="text" class="form-control" id="email" name="email"  placeholder="请输入邮箱" value = "<%= data[0].email %>" title="邮箱正确格式：xxx@xxx.com"> </td>
+                  </tr>
+                  <tr>
+                    <th> 地址</th>
+                    <td style = "padding:0px 0px;"> <input type="text" class="form-control" id="address" name="address" placeholder="请输入您的地址" value = "<%= data[0].address %>"> </td>
+                  </tr>
+                  <tr>
+                    <th> 职业</th>
+                    <td style = "padding:0px 0px;"> <input type="text" class="form-control" id="occupation" name="occupation" placeholder="请输入您的职业" value = "<%= data[0].occupation %>"> </td>
+                  </tr>
+                  <tr>
+                    <th> 教育水平</th>
+                    <td style = "padding:0px 0px;"> <select required id="education" name="education" class="form-control" oninvalid="setCustomValidity('*请选择您的学历')" oninput="setCustomValidity('')" style="color: rgba(153,153,153,1)" >
+                                            <option value="小学">小学</option>
+                                            <option value="初中">初中</option>
+                                            <option value="高中">高中</option>
+                                            <option value="中专">中专</option>
+                                            <option value="专科">专科</option>
+                                            <option value="本科">本科</option>
+                                            <option value="硕士">硕士</option>
+                                            <option value="博士">博士</option>
+                                        </select> </td>
+                  </tr>
+                  <tr>
+                    <th> 工作地址</th>
+                    <td style = "padding:0px 0px;">  <input type="text" class="form-control" id="workplace" name="workplace" placeholder="请输入工作地点" value = "<%= data[0].workplace %>"> </td>
+                  </tr>
+
+                   <% } else{%>
+                  <tr>
+                    <th> 营业执照</th>
+                    <td style = "padding:0px 0px;"> <input type="text" class="form-control input" id="business_license" name="business_license" placeholder="请输入营业执照" value = "<%= data[0].business_license %>"> </td>
+                  </tr>
+                  <tr>
+                    <th> 经理姓名</th>
+                    <td style = "padding:0px 0px;"> <input type="text" class="form-control" id="manager_name" name="manager_name" placeholder="请输入公司经理姓名" value = "<%= data[0].manager_name %>"> </td>
+                  </tr>
+                  <tr>
+                    <th> 经理身份证号</th>
+                    <td style = "padding:0px 0px;"> <input type="text" class="form-control" id="manager_id_card" name="manager_id_card" placeholder="请输入公司身份证号" value = "<%= data[0].manager_id_card %>"> </td>
+                  </tr>
+                  <tr>
+                    <th> 经理联系电话</th>
+                    <td style = "padding:0px 0px;"> <input type="text" class="form-control" id="manager_phone" name="manager_phone" placeholder="请输入公司经理联系电话" value = "<%= data[0].manager_phone %>"> </td>
+                  </tr>
+                  <% }%>
+                </tbody>
+              </table>
+            </form>
           </div>
         </div>
         <div class="box-footer">
-          <div class="col-md-10">
-            <button type="submit" class="btn btn-primary">编辑</button>
+          <div class="col-md-6">
+            <button type="submit" class="btn btn-primary">提交</button>
           </div>
         </div>
       </div>

@@ -193,7 +193,8 @@ desired effect
                   <th> 联系电话</th>
                   <td> <%= data[0].phone %> </td>
                 </tr>
-
+                
+                <% if (data[0].usertype == "0") {%>
                 <tr>
                   <th> 邮箱</th>
                   <td> <%= data[0].email %> </td>
@@ -214,7 +215,12 @@ desired effect
                   <th> 工作地址</th>
                   <td> <%= data[0].workplace %> </td>
                 </tr>
-                
+                 <% } else{%>
+
+                <tr>
+                  <th> 营业执照</th>
+                  <td> <%= data[0].business_license %> </td>
+                </tr>
                 <tr>
                   <th> 经理姓名</th>
                   <td> <%= data[0].manager_name %> </td>
@@ -227,13 +233,15 @@ desired effect
                   <th> 经理联系电话</th>
                   <td> <%= data[0].manager_phone %> </td>
                 </tr>
+                <% }%>
+
               </tbody>
             </table>
           </div>
         </div>
         <div class="box-footer">
           <div class="col-md-10">
-            <button type="submit" class="btn btn-primary">编辑</button>
+            <a class="btn btn-primary" href = "/editmainpage">编辑</a>
           </div>
         </div>
       </div>
