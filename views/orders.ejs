@@ -11,7 +11,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
-     <link rel="stylesheet" href="/AdminLTE-2.3.11/bootstrap/css/bootstrap.min.css">
+   <link rel="stylesheet" href="/AdminLTE-2.3.11/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Ionicons -->
@@ -127,8 +127,8 @@ desired effect
       <ul class="sidebar-menu">
         <li class="header">证券账户个人中心</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-circle-o"></i> <span>基本信息</span></a></li>
-         <li><a href="/orders"><i class="fa fa-circle-o"></i> <span>持有挂单</span></a></li>
+        <li><a href="/mainpage"><i class="fa fa-circle-o"></i> <span>基本信息</span></a></li>
+        <li class="active"><a href="#"><i class="fa fa-circle-o"></i> <span>持有挂单</span></a></li>
         <li><a href="/userstock"><i class="fa fa-circle-o"></i> <span>持有股票</span></a></li>
         <li><a href="/traderecord"><i class="fa fa-circle-o"></i> <span>交易记录</span></a></li>
         <li><a href="/password"><i class="fa fa-circle-o"></i> <span>修改密码</span></a></li>
@@ -149,104 +149,50 @@ desired effect
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> 个人中心</a></li>
-        <li class="active">基本信息</li>
+        <li class="active">持有挂单</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
+
+
       <div class="box box-primary">
         <div class="box-header">
-          <h3 class="box-title">基本信息</h3>
+          <h3 class="box-title">持有挂单</h3>
         </div>
         <div class="box-body">
-          <div class="col-md-10">
+          <div class="col-md-12">
             <table class = "table table-hover">
               <tbody>
                 <tr>
-                  <th> 用户名 </th>
-                  <td> <%= data[0].username %> </td>
-                </tr>
-                <tr>
-                  <th> 账户类型</th>
-                  <% if (data[0].usertype == "0") {%>
-                    <td> 自然人 </td>
-                  <% }else{ %>
-                    <td> 法人 </td>
-                  <% } %>
-                </tr>
-                <tr>
-                  <th> 姓名</th>
-                  <td> <%= data[0].name %> </td>
-                </tr>
-                <tr>
-                  <th> 性别</th>
-                  <% if (data[0].gender == "0") {%>
-                    <td> 男 </td>
-                  <% }else{ %>
-                    <td> 女 </td>
-                  <% } %>
-                </tr>
-                <tr>
-                  <th> 身份证号</th>
-                  <td> <%= data[0].id_card %> </td>
-                </tr>
-                <tr>
-                  <th> 联系电话</th>
-                  <td> <%= data[0].phone %> </td>
-                </tr>
-                
-                <% if (data[0].usertype == "0") {%>
-                <tr>
-                  <th> 邮箱</th>
-                  <td> <%= data[0].email %> </td>
-                </tr>
-                <tr>
-                  <th> 地址</th>
-                  <td> <%= data[0].address %> </td>
-                </tr>
-                <tr>
-                  <th> 职业</th>
-                  <td> <%= data[0].occupation %> </td>
-                </tr>
-                <tr>
-                  <th> 教育水平</th>
-                  <td> <%= data[0].education %> </td>
-                </tr>
-                <tr>
-                  <th> 工作地址</th>
-                  <td> <%= data[0].workplace %> </td>
-                </tr>
-                 <% } else{%>
+                  <th> 订单号 </th>
+                  <th> 股票代码 </th>
+                  <th> 交易类型 </th>
+                  <th> 成交手 </th>
+                  <th> 成交价格 </th>
+                  <th> 交易时间 </th>
+                </tr> 
+                <% for(var i=0;i<data.length;i++){ %>
+                  <tr>
+                    <td> <%= data[i].orderID %></td>
+                    <td> <%= data[i].stockID %></td>
+                    <td> <%= data[i].buyOrSell %></td>
+                    <td> <%= data[i].orderNum %> </td>
+                    <td> <%= data[i].price %> </td>
+                    <td> <%= data[i].time %> </td>
+                    <td>  </td>
+                  </tr> 
 
-                <tr>
-                  <th> 营业执照</th>
-                  <td> <%= data[0].business_license %> </td>
-                </tr>
-                <tr>
-                  <th> 经理姓名</th>
-                  <td> <%= data[0].manager_name %> </td>
-                </tr>
-                <tr>
-                  <th> 经理身份证号</th>
-                  <td> <%= data[0].manager_id_card %> </td>
-                </tr>
-                <tr>
-                  <th> 经理联系电话</th>
-                  <td> <%= data[0].manager_phone %> </td>
-                </tr>
-                <% }%>
-
+                <%}%>
               </tbody>
             </table>
           </div>
         </div>
-        <div class="box-footer">
-          <div class="col-md-10">
-            <a class="btn btn-primary" href = "/editmainpage">编辑</a>
-          </div>
-        </div>
       </div>
+
+
+      
       <!-- Your Page Content Here -->
 
     </section>

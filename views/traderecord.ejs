@@ -128,6 +128,8 @@ desired effect
         <li class="header">证券账户个人中心</li>
         <!-- Optionally, you can add icons to the links -->
         <li><a href="/mainpage"><i class="fa fa-circle-o"></i> <span>基本信息</span></a></li>
+        <li><a href="/orders"><i class="fa fa-circle-o"></i> <span>持有挂单</span></a></li>
+        <li><a href="/userstock"><i class="fa fa-circle-o"></i> <span>持有股票</span></a></li>
         <li class="active"><a href="#"><i class="fa fa-circle-o"></i> <span>交易记录</span></a></li>
         <li><a href="/password"><i class="fa fa-circle-o"></i> <span>修改密码</span></a></li>
         <li><a href="/discard"><i class="fa fa-circle-o"></i> <span>销户申请</span></a></li>
@@ -154,28 +156,6 @@ desired effect
     <!-- Main content -->
     <section class="content">
 
-
-      <div class="box box-primary">
-        <div class="box-header">
-          <h3 class="box-title">已购股票</h3>
-        </div>
-        <div class="box-body">
-          <div class="col-md-12">
-            <table class = "table table-hover">
-              <tbody>
-                <tr>
-                  <th> 股票名称 </th>
-                  <th> 成交价格 </th>
-                  <th> 成交手 </th>
-                  <th> 成交金额 </th>
-                  <th> 详情 </th>
-                </tr> 
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
       <div class="box box-primary">
         <div class="box-header">
           <h3 class="box-title">交易记录</h3>
@@ -194,7 +174,7 @@ desired effect
                   <th> 成交金额 </th>
                   <th> 买卖类型 </th>
                 </tr> 
-                <% for(var i=0;i<data.length;i++){ %>
+                <% for(var i=0;i<20;i++){ %>
                   <tr>
                     <td> <%= data[i].code %></td>
                     <td> <%= data[i].date %> </td>
