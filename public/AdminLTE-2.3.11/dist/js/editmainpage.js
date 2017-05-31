@@ -24,12 +24,11 @@ $().ready(function () {
     $("#edit_form").validate({
         submitHandler : function(form) {  //验证通过后的执行方法
             //当前的form通过ajax方式提交（用到jQuery.Form文件）
-            //alert("提交表单");
+            alert("提交表单");
             $(form).ajaxSubmit({
                 dataType:"json",
                 success:function( jsondata ){
                     if( jsondata.code == 200 ){
-
                         alert("修改成功");
                     }else{
                         alert("修改失败");

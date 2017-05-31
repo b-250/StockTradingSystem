@@ -93,7 +93,22 @@ User.prototype.userNum = function(username, callback) {
     });
   });
 };
-
+User.prototype.updateInfo  =function(callback){
+  var UPDATE_INFO ="UPDATE useraccount set name = ?, gender = ?, phone = ?, email = ?, address = ?, occupation = ?, education = ?, workplace = ?, business_license = ?, manager_name = ?, manager_id_card = ?, manager_phone = ? WHERE userid = 10";
+  //var UPDATE_INFO ="UPDATE useraccount set name = ? WHERE USERNAME = ?";
+  console.log("username: " + this.username);
+  console.log("name: " + this.name);
+  pool.getConnection(function(err,connection){
+    connection.query(UPDATE_INFO,[this.name, this.gender, this.phone, this.email, this.address, this.occupation, this.education, this.workplace, this.business_license, this.manager_name, this.manager_id_card, this.manager_phone], function(err,result){
+      if (err) {
+        console.log("UPDATE_INFO Error: " + err.message);
+        return;
+      }
+      connection.release();
+      callback(err,result);
+    });
+  });
+}
 User.prototype.userInfo = function(callback){
  var user = {
     username : this.username,
