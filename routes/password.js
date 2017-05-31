@@ -18,6 +18,7 @@ router.post('/',function(req, res) {
         });
     
 	//通过用户名取到用户信息
+	
     ExaminePassword.userInfo(function(err,result){
         if(err){
             //res.locals.status = "fail";
@@ -31,15 +32,17 @@ router.post('/',function(req, res) {
             if(result[0]['password'] == oldpassword){
 				ExaminePassword.updatePassword(newpassword,function (err, results) {
 				console.log("updatePassword function calling");
+
 				if(err){
 					console.log("invalid update of Password");
-					res.send({code:0});
+					res.send({code:0, msg: '修改失败'});
 					return;
 				}
 				else
 				{
 					console.log("Here i am~");
-					res.send({code:200});
+					res.send({code:200, msg: '修改成功'});
+					return;
 					//res.redirect('/mainpage');
 				}
 			});
@@ -50,11 +53,10 @@ router.post('/',function(req, res) {
                 var user = {'username':''};
                 //res.locals.status = "fail";
                 console.log('* 密码错误');
-                res.send({code: 0, msg: ' * 密码错误', userinfo : user});
+                res.send({code: 0, msg: '原密码错误'});
                 //res.render('index', {errMsg: ' * 用户名或密码错误' });
             }
         }
-        res.end();
     });
     
     //检查用户名是否已经存在

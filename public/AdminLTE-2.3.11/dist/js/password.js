@@ -12,9 +12,10 @@ $().ready(function () {
                 dataType:"json",
                 success:function( jsondata ){
                     if( jsondata.code == 200 ){
-                        alert("修改成功123");
+                        alert(jsondata.msg);
+                        window.location.href = "/password";
                     }else{
-                        alert("修改失败");
+                        alert(jsondata.msg);
                     }
                 }
             });
