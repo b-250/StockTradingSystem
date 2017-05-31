@@ -1,7 +1,6 @@
 /**
- * Created by pankaicheng on 17/5/19.
+ * Created by pankaicheng on 17/5/31.
  */
-
 jQuery.validator.addMethod(
     "type0",
     function (value, element, param) {
@@ -19,31 +18,10 @@ jQuery.validator.addMethod(
     },
     $.validator.format("请输入正确的信息")
 );
-var user_valid = function () {
-    $.get("/login",
-          function (result) {
-                user_info = result.userinfo;
-                //alert(user_info.username);
-                if(user_info.username!=""){
-                    $("#login-button").text("");
-                    $("#register-button").text("");
-                    $("#user-menu").show();
-                    $("#user-menu-name").text(user_info.username);
-                }
-                else{
-                    $("#user-menu").hide();
-                }
-          });
-};
 
 $().ready(function () {
-    $('#manager_id_card_div').hide();
-    $('#manager_name_div').hide();
-    $('#manager_phone_div').hide();
-    $('#business_license_div').hide();
-    user_valid();
 
-    $("#register_form").validate({
+    $("#edit_form").validate({
         submitHandler : function(form) {  //验证通过后的执行方法
             //当前的form通过ajax方式提交（用到jQuery.Form文件）
             //alert("提交表单");
@@ -51,19 +29,10 @@ $().ready(function () {
                 dataType:"json",
                 success:function( jsondata ){
                     if( jsondata.code == 200 ){
-                        $('#login-modal').modal('hide');
-                        user_valid();
-                        alert("注册成功");
+
+                        alert("修改成功");
                     }else{
-                        $('#login-modal').modal('show');
-                        $('#login-tab').removeClass('active');
-                        $('#login-li').removeClass('active');
-                        $('#register-li').addClass('active');
-                        $('#register-tab').addClass('active');
-                        $('#password1').html("");
-                        $('#password2').html("");
-                        $('#register_error').text(" * 用户名已存在");
-                        alert("用户名已存在");
+                        alert("修改失败");
                     }
                 }
             });
@@ -186,52 +155,6 @@ $().ready(function () {
     });
 
 });
-
-$("#login-button").click(function () {
-    $('#register-li').removeClass('active');
-    $('#register-tab').removeClass('active');
-    $('#login-tab').addClass('active');
-    $('#login-li').addClass('active');
+$('#edit_btn').click(function () {
+    alert("clik the button");
 });
-
-$("#register-button").click(function () {
-    $('#login-tab').removeClass('active');
-    $('#login-li').removeClass('active');
-    $('#register-li').addClass('active');
-    $('#register-tab').addClass('active');
-});
-
-$("#user-type-1").click(function () {
-    $('#manager_id_card_div').hide();
-    $('#manager_name_div').hide();
-    $('#manager_phone_div').hide();
-    $('#business_license_div').hide();
-    $('#workplace_div').show();
-    $('#education_div').show();
-    $('#occupation_div').show();
-    $('#email_div').show();
-    $('#address_div').show();
-    alert($("#user-type-1").value());
-});
-$("#user-type-2").click(function () {
-    $('#manager_id_card_div').show();
-    $('#manager_name_div').show();
-    $('#manager_phone_div').show();
-    $('#business_license_div').show();
-    $('#workplace_div').hide();
-    $('#education_div').hide();
-    $('#occupation_div').hide();
-    $('#address_div').hide();
-    $('#email_div').hide();
-    //alert($("input[name='optionsRadios']:checked").val());
-});
-
-$("#close-modal").click(function () {
-    $("#login_error").html("");
-    $("#login_password").text("");
-    $("#bond_id").text("");
-    $("#password1").text("");
-    $("#password2").text("");
-    $("#register_error").html("");
-});
-
