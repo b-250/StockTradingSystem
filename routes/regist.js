@@ -55,20 +55,33 @@ router.post('/',function(req, res) {
         }
 
         if (err) {
-            res.render('index', {errMsg: err });
+            user = {'username':''};
+            console.log("注册失败");
+            res.send({code:0, msg: err, userinfo : user});
+            //res.render('index', {errMsg: err });
             return;
         }
         newUser.userSave(function(err,result){
             if(err){
-                res.render('index', {errMsg: err });
+                user = {'username':''};
+                console.log("注册失败");
+                res.send({code:0, msg: err, userinfo : user});
+                //res.render('index', {errMsg: err });
                 return;
             }
             if(result.insertId > 0){
                 res.locals.status = "success";
-                res.render('index', {errMsg:'' });
+                var user = {'username':username};
+                console.log("注册成功");
+                req.session.user = user;//保存用户session信息
+                res.send({code:200, msg:'注册成功', userinfo : user});
+                //res.render('index', {errMsg:'' });
             }
             else{
-                res.render('index', {errMsg: err });
+                user = {'username':''};
+                console.log("注册失败");
+                res.send({code:0, msg: err, userinfo : user});
+                //res.render('index', {errMsg: err });
             }
         });
     });

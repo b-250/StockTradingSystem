@@ -34,7 +34,7 @@ var user_valid = function () {
                     $("#user-menu").hide();
                 }
           });
-}
+};
 
 $().ready(function () {
     $('#manager_id_card_div').hide();
@@ -44,6 +44,31 @@ $().ready(function () {
     user_valid();
 
     $("#register_form").validate({
+        submitHandler : function(form) {  //验证通过后的执行方法
+            //当前的form通过ajax方式提交（用到jQuery.Form文件）
+            //alert("提交表单");
+            $(form).ajaxSubmit({
+                dataType:"json",
+                success:function( jsondata ){
+                    if( jsondata.code == 200 ){
+                        $('#login-modal').modal('hide');
+                        user_valid();
+                        alert("注册成功");
+                    }else{
+                        $('#login-modal').modal('show');
+                        $('#login-tab').removeClass('active');
+                        $('#login-li').removeClass('active');
+                        $('#register-li').addClass('active');
+                        $('#register-tab').addClass('active');
+                        $('#password1').html("");
+                        $('#password2').html("");
+                        $('#register_error').text(" * 用户名已存在");
+                        alert("用户名已存在");
+                    }
+                }
+            });
+
+        },
         rules: {
             username: {
                 required: true,
@@ -72,6 +97,7 @@ $().ready(function () {
             },
             phone:{
                 required : true,
+                number: true,
                 minlength: 11,
                 maxlength: 11
             },
@@ -126,6 +152,7 @@ $().ready(function () {
             },
             phone:{
                 required: "*请输入手机号",
+                number: '*手机号只能是纯数字',
                 minlength: jQuery.validator.format("*请输入正确的手机号"),
                 maxlength: jQuery.validator.format("*请输入正确的手机号")
             },
