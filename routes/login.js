@@ -28,6 +28,7 @@ router.post("/",function(req, res) {
     var password = req.body.password;
     var type	 = req.body.loginType;
     console.log(username);
+    console.log(type);
     if(type == "user")
         var login = new User({
             username : username,
@@ -63,12 +64,18 @@ router.post("/",function(req, res) {
             //判断用户密码是否填写正确  演示没做加密，等有时间再加
             if(result[0]['password'] == password){
                 var user = {'username':username};
-                req.session.user = user;//保存用户session信息
+                
                 if(type == "user")
+                {
+                    req.session.user = user;//保存用户session信息
                     res.send({code:1, msg:'登录成功', userinfo : user});
+                }
                 //res.redirect('/main');
                 else if(type == "admin")
-                    res.redirect('/mainManage');
+                {
+                    res.send({code:1, msg:'登录成功', userinfo : user});
+                    //res.redirect('/mainManage');
+                }
             }
             else{
                 //res.locals.status = "fail";

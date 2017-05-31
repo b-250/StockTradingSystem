@@ -30,6 +30,7 @@ $().ready(function () {
                 success:function( jsondata ){
                     if( jsondata.code == 200 ){
                         alert("修改成功");
+                        window.location.href = "/mainpage";
                     }else{
                         alert("修改失败");
                     }

@@ -24,7 +24,7 @@ var user_valid = function () {
           function (result) {
                 //alert("int the user_valid");
                 user_info = result.userinfo;
-                alert(user_info.username);
+                //alert(user_info.username);
                 if(user_info.username!=""){
                     $("#login-button").hide();
                     $("#register-button").hide();

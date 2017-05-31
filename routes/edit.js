@@ -47,11 +47,13 @@ router.post('/',function(req, res) {
     newUser.updateInfo(function (err, results) {
     	if(err){
     		console.log("invalid update");
+    		res.send({code:0});
     		return;
     	}
     	else
     	{
-    		res.redirect('/mainpage');
+    		res.send({code:200});
+    		//res.redirect('/mainpage');
     	}
 
     });

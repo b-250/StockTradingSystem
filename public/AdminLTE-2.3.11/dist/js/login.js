@@ -6,7 +6,6 @@ $().ready(function () {
     $("#login_form").validate({
         submitHandler : function () {
             var log_type = $("input[name='loginType']:checked").val();
-            //alert(log_type);
             $.post("/login",
                 {
                     username: $('#login_bond_id').val(),
@@ -14,7 +13,7 @@ $().ready(function () {
                     loginType: log_type
                 },
                 function (result) {
-                    //alert("code="+result.code);
+
                     if (result.code==0){
                         //alert("提示：" + result.msg);
                         $('#login-modal').modal('show');
@@ -27,13 +26,27 @@ $().ready(function () {
                         //alert("done");
                     }
                     else if (result.code ==1){
-                        $('#login-modal').modal('hide');
-                        $("#login-button").hide();
-                        $("#register-button").hide();
-                        $("#user-menu").show();
-                        $("#user-menu-name").text(result.userinfo.username);
-                        $("#dropdown-user-name").text(result.userinfo.username);
                         alert("登录成功");
+                        if(log_type == "admin")
+                        {
+                            window.location.href = "/mainManage";
+                        }
+                        else
+                        {
+                            $('#login-modal').modal('hide');
+                            $("#login-button").hide();
+                            $("#register-button").hide();
+                            $("#user-menu").show();
+                            $("#user-menu-name").text(result.userinfo.username);
+                            $("#dropdown-user-name").text(result.userinfo.username);
+                        }
+                        
+
+
+                        
+                        
+                        
+                        
                     }
                 }
             )
