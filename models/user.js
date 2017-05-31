@@ -166,7 +166,7 @@ User.prototype.userInfo = function(callback){
   });
 }
 
-User.prototype.updatePassword = function(oldpassword,newpassword,callback){
+User.prototype.updatePassword = function(newpassword,callback){
 	var user = {
     username : this.username,
     password : newpassword};

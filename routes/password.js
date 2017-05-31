@@ -29,7 +29,7 @@ router.post('/',function(req, res) {
         else{
             //判断用户密码是否填写正确  演示没做加密，等有时间再加
             if(result[0]['password'] == oldpassword){
-				ExaminePassword.updatePassword(oldpassword,newpassword,function (err, results) {
+				ExaminePassword.updatePassword(newpassword,function (err, results) {
 				console.log("updatePassword function calling");
 				if(err){
 					console.log("invalid update of Password");
