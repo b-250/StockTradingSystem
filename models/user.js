@@ -1,21 +1,14 @@
 var mysql = require('mysql');
 
-//创建连接池 createPool(Object)
-// Object和createConnection参数相同。
-/*var pool = mysql.createPool({
-      host : '112.74.124.145',
-      user : 'group1',
-      password :'group1',
-      database:'stockG1',
-      port : 3306
-  });*/
+
 var pool = mysql.createPool({
-      host : '127.0.0.1',
-      user : 'root',
-      password :'lsy960927',
-      database:'nodedb',
-      port : 3306
+      host : 'tdsql-219vguff.sh.cdb.myqcloud.com',
+      user : 'group1',
+      password :'group1..',
+      database:'stockg1',
+      port : 23
   });
+  
 //可以监听connection事件，并设置session值
 pool.on('connnection',function(connection){
   console.log("pool on");
@@ -93,13 +86,41 @@ User.prototype.userNum = function(username, callback) {
     });
   });
 };
+
 User.prototype.updateInfo  =function(callback){
-  var UPDATE_INFO ="UPDATE useraccount set name = ?, gender = ?, phone = ?, email = ?, address = ?, occupation = ?, education = ?, workplace = ?, business_license = ?, manager_name = ?, manager_id_card = ?, manager_phone = ? WHERE userid = 10";
-  //var UPDATE_INFO ="UPDATE useraccount set name = ? WHERE USERNAME = ?";
+	var user = {
+    username : this.username,
+    password : this.password,
+    type : this.type,
+    status : this.status,
+    id_card : this.id_card,
+    name : this.name,
+    gender : this.gender,
+    phone : this.phone,
+    email : this.email,
+    address : this.address,
+    occupation : this.occupation,
+    education : this.education,
+    workplace : this.workplace,
+    agent_id : this.agent_id,
+    business_license : this.business_license,
+    manager_name : this.manager_name,
+    manager_id_card : this.manager_id_card,
+    manager_phone : this.manager_phone
+  };
+  
+  var UPDATE_INFO =
+  "UPDATE useraccount SET NAME = ?, GENDER = ?, PHONE = ?, EMAIL = ?, ADDRESS = ?, OCCUPATION = ?, EDUCATION = ?,WORKPLACE = ?, BUSINESS_LICENSE = ?,   MANAGER_NAME = ?, MANAGER_ID_CARD = ?, MANAGER_PHONE = ? WHERE USERNAME = ?";
+  
   console.log("username: " + this.username);
   console.log("name: " + this.name);
+  console.log("phone: " + this.phone);
   pool.getConnection(function(err,connection){
-    connection.query(UPDATE_INFO,[this.name, this.gender, this.phone, this.email, this.address, this.occupation, this.education, this.workplace, this.business_license, this.manager_name, this.manager_id_card, this.manager_phone], function(err,result){
+    connection.query(UPDATE_INFO,
+	[user.name, user.gender, user.phone, user.email, 
+	user.address, user.occupation, user.education, user.workplace, 
+	user.business_license, user.manager_name,
+	user.manager_id_card, user.manager_phone,user.username], function(err,result){
       if (err) {
         console.log("UPDATE_INFO Error: " + err.message);
         return;
@@ -109,6 +130,7 @@ User.prototype.updateInfo  =function(callback){
     });
   });
 }
+
 User.prototype.userInfo = function(callback){
  var user = {
     username : this.username,
@@ -143,4 +165,30 @@ User.prototype.userInfo = function(callback){
     });
   });
 }
+
+User.prototype.updatePassword = function(oldpassword,newpassword,callback){
+	var user = {
+    username : this.username,
+    password : newpassword};
+  
+  var UPDATE_INFO =
+  "UPDATE useraccount SET PASSWORD = ? WHERE USERNAME = ?";
+  
+  console.log("username: " + this.username);
+  console.log("oldpassword: " + this.password);
+  console.log("newpassword: " + newpassword);
+  
+  pool.getConnection(function(err,connection){
+    connection.query(UPDATE_INFO,
+	[user.password, user.username], function(err,result){
+      if (err) {
+        console.log("UPDATE_INFO Error: " + err.message);
+        return;
+      }
+      connection.release();
+      callback(err,result);
+    });
+  });
+}
+
 module.exports = User;

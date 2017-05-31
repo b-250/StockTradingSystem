@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
 		username : user.username
 	});
 	login.userInfo(function(err,result){
+		console.log("Edit result:");
 		console.log(result);
 		res.render('mainpage', {data: result});
 	});
@@ -45,6 +46,7 @@ router.post('/',function(req, res) {
     });
 
     newUser.updateInfo(function (err, results) {
+		console.log("updateInfo function calling");
     	if(err){
     		console.log("invalid update");
     		res.send({code:0});
