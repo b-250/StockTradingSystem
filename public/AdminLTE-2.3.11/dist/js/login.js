@@ -28,8 +28,8 @@ $().ready(function () {
                     }
                     else if (result.code ==1){
                         $('#login-modal').modal('hide');
-                        $("#login-button").text("");
-                        $("#register-button").text("");
+                        $("#login-button").hide();
+                        $("#register-button").hide();
                         $("#user-menu").show();
                         $("#user-menu-name").text(result.userinfo.username);
                         $("#dropdown-user-name").text(result.userinfo.username);
