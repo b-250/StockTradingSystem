@@ -29,6 +29,7 @@ var user_valid = function () {
                     $("#register-button").text("");
                     $("#user-menu").show();
                     $("#user-menu-name").text(user_info.username);
+                    $("#dropdown-user-name").text(result.userinfo.username);
                 }
                 else{
                     $("#user-menu").hide();

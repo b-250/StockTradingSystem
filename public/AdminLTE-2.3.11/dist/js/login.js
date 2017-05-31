@@ -32,6 +32,7 @@ $().ready(function () {
                         $("#register-button").text("");
                         $("#user-menu").show();
                         $("#user-menu-name").text(result.userinfo.username);
+                        $("#dropdown-user-name").text(result.userinfo.username);
                         alert("登录成功");
                     }
                 }
