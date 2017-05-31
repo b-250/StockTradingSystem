@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9b001f1-df48-4201-9e1b-cb6976ed3ee8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/discard.ejs" afterPath="$PROJECT_DIR$/views/discard.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/orders.ejs" afterPath="$PROJECT_DIR$/views/orders.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/password.ejs" afterPath="$PROJECT_DIR$/views/password.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/traderecord.ejs" afterPath="$PROJECT_DIR$/views/traderecord.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/userstock.ejs" afterPath="$PROJECT_DIR$/views/userstock.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,63 +17,31 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/index.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="438" column="0" lean-forward="false" selection-start-line="438" selection-start-column="0" selection-end-line="448" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/AdminLTE-2.3.11/dist/js/login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="register.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/AdminLTE-2.3.11/dist/js/register.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="regist.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/regist.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/user.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding>
-                <marker date="1496208963000" expanded="true" signature="590:665" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userstock.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/userstock.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="79" column="14" lean-forward="false" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="traderecord.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/traderecord.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="79" column="14" lean-forward="false" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tradeManage_user.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/tradeManage_user.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-762">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="246">
+              <caret line="83" column="37" lean-forward="true" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -86,9 +50,21 @@
       <file leaf-file-name="password.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/password.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="78" column="14" lean-forward="false" selection-start-line="78" selection-start-column="14" selection-end-line="78" selection-end-column="14" />
+            <state relative-caret-position="305">
+              <caret line="186" column="125" lean-forward="true" selection-start-line="186" selection-start-column="125" selection-end-line="186" selection-end-column="125" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="password.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/AdminLTE-2.3.11/dist/js/password.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="296">
+              <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#45#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -113,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="discard.ejs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="discard.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/discard.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="85" column="26" lean-forward="false" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="26" />
+            <state relative-caret-position="298">
+              <caret line="289" column="28" lean-forward="true" selection-start-line="289" selection-start-column="28" selection-end-line="289" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -148,6 +124,8 @@
       <find>user_valid</find>
       <find>pass</find>
       <find>render</find>
+      <find>form</find>
+      <find>修改成功</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -169,13 +147,14 @@
         <option value="$PROJECT_DIR$/views/editmainpage.ejs" />
         <option value="$PROJECT_DIR$/routes/editmainpage.js" />
         <option value="$PROJECT_DIR$/routes/regist.js" />
-        <option value="$PROJECT_DIR$/views/index.ejs" />
         <option value="$PROJECT_DIR$/public/AdminLTE-2.3.11/dist/js/register.js" />
         <option value="$PROJECT_DIR$/views/userstock.ejs" />
         <option value="$PROJECT_DIR$/views/traderecord.ejs" />
-        <option value="$PROJECT_DIR$/views/password.ejs" />
         <option value="$PROJECT_DIR$/views/orders.ejs" />
         <option value="$PROJECT_DIR$/views/discard.ejs" />
+        <option value="$PROJECT_DIR$/views/index.ejs" />
+        <option value="$PROJECT_DIR$/views/password.ejs" />
+        <option value="$PROJECT_DIR$/public/AdminLTE-2.3.11/dist/js/password.js" />
       </list>
     </option>
   </component>
@@ -444,12 +423,12 @@
       <workItem from="1495605371133" duration="1242000" />
       <workItem from="1495619464260" duration="5698000" />
       <workItem from="1495628805577" duration="3796000" />
-      <workItem from="1496208821214" duration="4072000" />
+      <workItem from="1496208821214" duration="6023000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34899000" />
+    <option name="totallyTimeSpent" value="36850000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="64" width="1440" height="754" extended-state="0" />
@@ -504,14 +483,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/routes/regist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -758,7 +729,7 @@
         <state relative-caret-position="-6164">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -773,28 +744,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.ejs">
+    <entry file="file://$PROJECT_DIR$/views/editmainpage.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="213" column="56" lean-forward="false" selection-start-line="213" selection-start-column="52" selection-end-line="213" selection-end-column="56" />
-          <folding>
-            <element signature="n#style#0;n#label#0;n#div#11;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/AdminLTE-2.3.11/dist/js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="34" lean-forward="false" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+        <state relative-caret-position="245">
+          <caret line="78" column="17" lean-forward="true" selection-start-line="78" selection-start-column="17" selection-end-line="78" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/AdminLTE-2.3.11/dist/js/register.js">
+    <entry file="file://$PROJECT_DIR$/views/orders.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+        <state relative-caret-position="299">
+          <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/discard.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="289" column="28" lean-forward="true" selection-start-line="289" selection-start-column="28" selection-end-line="289" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -841,35 +810,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/password.ejs">
+    <entry file="file://$PROJECT_DIR$/public/AdminLTE-2.3.11/dist/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="78" column="14" lean-forward="false" selection-start-line="78" selection-start-column="14" selection-end-line="78" selection-end-column="14" />
+          <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/editmainpage.ejs">
+    <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="78" column="17" lean-forward="true" selection-start-line="78" selection-start-column="17" selection-end-line="78" selection-end-column="17" />
+        <state relative-caret-position="435">
+          <caret line="438" column="0" lean-forward="false" selection-start-line="438" selection-start-column="0" selection-end-line="448" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/orders.ejs">
+    <entry file="file://$PROJECT_DIR$/public/AdminLTE-2.3.11/dist/js/register.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+        <state relative-caret-position="246">
+          <caret line="83" column="37" lean-forward="true" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/discard.ejs">
+    <entry file="file://$PROJECT_DIR$/views/password.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="85" column="26" lean-forward="false" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="26" />
+        <state relative-caret-position="305">
+          <caret line="186" column="125" lean-forward="true" selection-start-line="186" selection-start-column="125" selection-end-line="186" selection-end-column="125" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/AdminLTE-2.3.11/dist/js/password.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#45#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
