@@ -5,7 +5,7 @@ var User = require("../models/user.js");
 /* GET home page. */
 router.get('/', function(req, res) {
 	var login = new User({
-		username : 'abc123'
+		username : 'Sakura'
 	});
 	login.userInfo(function(err,result){
 		res.render('editmainpage', {data: result});

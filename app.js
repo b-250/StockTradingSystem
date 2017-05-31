@@ -12,6 +12,7 @@ var login = require('./routes/login');
 var users = require('./routes/users');
 var regist = require('./routes/regist');
 var main = require('./routes/main');
+var logout = require('./routes/logout');
 var editmainpage = require('./routes/editmainpage');
 var mainManage = require('./routes/mainManage');
 var mainpage = require('./routes/mainpage');
@@ -50,6 +51,7 @@ app.use(session({
 app.use('/', index);
 app.use('/login',login);
 app.use('/users', users);
+app.use('/logout', logout);
 app.use('/regist', regist);
 app.use('/main', main);
 app.use('/editmainpage', editmainpage);

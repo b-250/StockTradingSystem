@@ -4,8 +4,9 @@ var User = require("../models/user.js");
 
 /* GET home page. */
 router.get('/', function(req, res) {
+	var user = req.session.user;
 	var login = new User({
-		username : 'abc123'
+		username : user.username
 	});
 	login.userInfo(function(err,result){
 		console.log(result);
