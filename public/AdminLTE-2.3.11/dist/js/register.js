@@ -22,17 +22,20 @@ jQuery.validator.addMethod(
 var user_valid = function () {
     $.get("/login",
           function (result) {
+                //alert("int the user_valid");
                 user_info = result.userinfo;
-                //alert(user_info.username);
+                alert(user_info.username);
                 if(user_info.username!=""){
-                    $("#login-button").text("");
-                    $("#register-button").text("");
+                    $("#login-button").hide();
+                    $("#register-button").hide();
                     $("#user-menu").show();
                     $("#user-menu-name").text(user_info.username);
                     $("#dropdown-user-name").text(result.userinfo.username);
                 }
                 else{
                     $("#user-menu").hide();
+                    $("#login-button").show();
+                    $("#register-button").show();
                 }
           });
 };
@@ -43,7 +46,7 @@ $().ready(function () {
     $('#manager_phone_div').hide();
     $('#business_license_div').hide();
     user_valid();
-
+    //alert("open the window");
     $("#register_form").validate({
         submitHandler : function(form) {  //验证通过后的执行方法
             //当前的form通过ajax方式提交（用到jQuery.Form文件）
