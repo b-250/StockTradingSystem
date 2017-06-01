@@ -12,9 +12,10 @@ $().ready(function () {
                 dataType:"json",
                 success:function( jsondata ){
                     if( jsondata.code == 200 ){
-                        alert("已经提交销户请求，等待管理员审核");
+                        alert(jsondata.msg);
+                        window.location.href = "/mainpage";
                     }else{
-                        alert("销户申请失败");
+                        alert(jsondata.msg);
                     }
                 }
             });

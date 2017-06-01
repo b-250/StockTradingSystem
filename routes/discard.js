@@ -45,10 +45,8 @@ router.post('/',function(req, res) {
 				}
 				else
 				{
-					console.log("Here i am~");
 					res.send({code:200, msg: '销户申请成功,请等待管理员审核'});
 					return;
-					//res.redirect('/mainpage');
 				}
 			});
                 
