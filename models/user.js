@@ -191,4 +191,26 @@ User.prototype.updatePassword = function(newpassword,callback){
   });
 }
 
+User.prototype.CloseApply = function(callback){
+	var user = {
+    username : this.username};
+  
+  var UPDATE_INFO =
+  "UPDATE useraccount SET userstatus = 'Close' WHERE USERNAME = ?";
+  
+  console.log("username: " + this.username);
+  
+  pool.getConnection(function(err,connection){
+    connection.query(UPDATE_INFO,
+	[user.username], function(err,result){
+      if (err) {
+        console.log("UPDATE_INFO Error: " + err.message);
+        return;
+      }
+      connection.release();
+      callback(err,result);
+    });
+  });
+}
+
 module.exports = User;
