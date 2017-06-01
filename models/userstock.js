@@ -1,14 +1,5 @@
 var mysql = require('mysql');
 
-//创建连接池 createPool(Object)
-// Object和createConnection参数相同。
-/*var pool = mysql.createPool({
-      host : '112.74.124.145',
-      user : 'group1',
-      password :'group1',
-      database:'stockG1',
-      port : 3306
-  });*/
 var pool = mysql.createPool({
       host : 'tdsql-219vguff.sh.cdb.myqcloud.com',
       user : 'group5',
@@ -36,7 +27,7 @@ UserStock.prototype.userstockInfo = function(callback){
     amount : this.amount,
     updateTime : this.updateTime
   };
- 
+	console.log("username: " + userstock.account);
   var SELECT_USERSTOCK ="SELECT * FROM userstocks WHERE account = ?";
   pool.getConnection(function(err,connection){
     connection.query(SELECT_USERSTOCK,[userstock.account],function(err,result){
