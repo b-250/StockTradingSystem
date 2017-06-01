@@ -7,6 +7,7 @@ router.get('/', function(req, res, next) {
   res.render('password');
 });
 
+/*Author: Zihan Zhao of A1*/
 router.post('/',function(req, res) {
     var username		 = req.session.user.username;
     var oldpassword		 = req.body.oldpassword;

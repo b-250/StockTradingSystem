@@ -1,5 +1,6 @@
 /**
  * Created by pankaicheng on 17/5/19.
+ * Modified by Zihan Zhao on 17/6/1  "add notification type"
  */
 $().ready(function () {
 
@@ -22,6 +23,28 @@ $().ready(function () {
                         $('#login-tab').addClass('active');
                         $('#login-li').addClass('active');
                         $("#login_error").html(" * 用户名或密码错误");
+                        $("#user-menu").hide();
+                        //alert("done");
+                    }
+                    if (result.code==2){
+                        //alert("提示：" + result.msg);
+                        $('#login-modal').modal('show');
+                        $('#register-li').removeClass('active');
+                        $('#register-tab').removeClass('active');
+                        $('#login-tab').addClass('active');
+                        $('#login-li').addClass('active');
+                        $("#login_error").html(" * 开户申请尚未通过");
+                        $("#user-menu").hide();
+                        //alert("done");
+                    }
+                    if (result.code==3){
+                        //alert("提示：" + result.msg);
+                        $('#login-modal').modal('show');
+                        $('#register-li').removeClass('active');
+                        $('#register-tab').removeClass('active');
+                        $('#login-tab').addClass('active');
+                        $('#login-li').addClass('active');
+                        $("#login_error").html(" * 账户已申请挂失，拒绝登录");
                         $("#user-menu").hide();
                         //alert("done");
                     }

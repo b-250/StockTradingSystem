@@ -1,3 +1,4 @@
+/*Author: Zihan Zhao of A1*/
 var express = require('express');
 var router = express.Router();
 var User = require("../models/user.js");

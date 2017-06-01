@@ -1,5 +1,7 @@
 /**
- * Created by pankaicheng on 17/5/24.
+ * Created by Zihan Zhao
+ * Modified by pankaicheng on 17/5/24. (Ajax modification)
+ * Modified by Zihan Zhao on 17/6/1. (Account Status Examine) 
  */
 var express = require('express');
 var User = require("../models/user.js");
@@ -63,19 +65,44 @@ router.post("/",function(req, res) {
         else{
             //判断用户密码是否填写正确  演示没做加密，等有时间再加
             if(result[0]['password'] == password){
-                var user = {'username':username};
-                
-                if(type == "user")
-                {
-                    req.session.user = user;//保存用户session信息
-                    res.send({code:1, msg:'登录成功', userinfo : user});
-                }
-                //res.redirect('/main');
-                else if(type == "admin")
-                {
-                    res.send({code:1, msg:'登录成功', userinfo : user});
-                    //res.redirect('/mainManage');
-                }
+				//判断用户状态				
+				var user = {'username':username};
+				
+				switch(result[0]['userstatus'])
+				{
+					case "Valid":
+					case "Close":	
+					case "CloseNotPass":					
+					{						
+						if(type == "user")
+						{
+							req.session.user = user;//保存用户session信息
+							res.send({code:1, msg:'登录成功', userinfo : user});
+						}
+						//res.redirect('/main');
+						else if(type == "admin")
+						{
+							res.send({code:1, msg:'登录成功', userinfo : user});
+							//res.redirect('/mainManage');
+						}
+						break;
+					}
+					case "OpenApply":
+					{
+						//res.locals.status = "fail";
+						console.log('* 开户申请尚未通过');
+						res.send({code: 2, msg: ' * 开户申请尚未通过', userinfo : user});
+						break;
+					}
+					case "LossReport":
+					{
+						//res.locals.status = "fail";
+						console.log('* 账户申请挂失');
+						res.send({code: 3, msg: ' * 账户已申请挂失，拒绝登录', userinfo : user});
+						break;
+					}
+				}				 
+
             }
             else{
                 //res.locals.status = "fail";

@@ -1,3 +1,5 @@
+/*Author: Zihan Zhao of A1
+ Modified: Initial status changed to "OpenApply 6/1/2017"*/
 var mysql = require('mysql');
 
 
@@ -41,7 +43,7 @@ User.prototype.userSave = function save(callback){
     username : this.username,
     password : this.password,
     type : this.type,
-    status : "init",
+    status : "OpenApply",
     id_card : this.id_card,
     name : this.name,
     gender : this.gender,
