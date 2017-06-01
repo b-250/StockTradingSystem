@@ -55,8 +55,13 @@ $().ready(function () {
                 dataType:"json",
                 success:function( jsondata ){
                     if( jsondata.code == 200 ){
-                        $('#login-modal').modal('hide');
-                        user_valid();
+                        $('#login-modal').modal('show');
+                        $('#register-li').removeClass('active');
+                        $('#register-tab').removeClass('active');
+                        $('#login-tab').addClass('active');
+                        $('#login-li').addClass('active');
+                        $('#login_bond_id').html(jsondata.userinfo.username);
+                        //user_valid();
                         alert("注册成功");
                     }else{
                         $('#login-modal').modal('show');
@@ -64,8 +69,8 @@ $().ready(function () {
                         $('#login-li').removeClass('active');
                         $('#register-li').addClass('active');
                         $('#register-tab').addClass('active');
-                        $('#password1').html("");
-                        $('#password2').html("");
+                        $('#password1').text("");
+                        $('#password2').text("");
                         $('#register_error').text(" * 用户名已存在");
                         alert("用户名已存在");
                     }

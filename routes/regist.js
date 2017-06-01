@@ -73,7 +73,7 @@ router.post('/',function(req, res) {
                 res.locals.status = "success";
                 var user = {'username':username};
                 console.log("注册成功");
-                req.session.user = user;//保存用户session信息
+                //req.session.user = user;//保存用户session信息
                 res.send({code:200, msg:'注册成功', userinfo : user});
                 //res.render('index', {errMsg:'' });
             }

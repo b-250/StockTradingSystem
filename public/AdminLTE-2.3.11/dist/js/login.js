@@ -41,12 +41,6 @@ $().ready(function () {
                             $("#dropdown-user-name").text(result.userinfo.username);
                         }
                         
-
-
-                        
-                        
-                        
-                        
                     }
                 }
             )
