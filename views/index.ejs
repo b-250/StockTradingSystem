@@ -178,28 +178,19 @@
                                 <div class="form-group col-md-12">
                                     <div class="col-md-3 no-padding text-right">
                                         <label for="bond_id" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">用户名:</label>
+                                        <label for="bond_id" style="color: red;">*</label>
                                     </div>
                                     <div class="col-md-9">
                                         <input type="text" class="form-control input-lg" id="bond_id" name="username" placeholder="请输入用户名(至少5个字符)">
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12 no-padding">
-                                    <label class="warn col-md-9 col-md-offset-3" id="register_error" style="color: red">
-                                    </label>
-                                    <script>
-                                        <% if(errMsg==" * 用户名已存在"){ %>
-                                            $('#login-modal').modal('show');
-                                            $('#login-tab').removeClass('active');
-                                            $('#login-li').removeClass('active');
-                                            $('#register-li').addClass('active');
-                                            $('#register-tab').addClass('active');
-                                            $('#register_error').text(" * 用户名已存在");
-                                        <%}%>
-                                    </script>
+                                    <label class="warn col-md-9 col-md-offset-3" id="register_error" style="color: red"></label>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <div class="col-md-3 no-padding text-right">
                                         <label for="user-type" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">账户类型:</label>
+                                        <label for="bond_id" style="color: red;">*</label>
                                     </div>
                                     <div id="user-type" class="col-md-9">
                                         <label class="radio-inline col-md-5 input-lg" style="color: rgba(153,153,153,1)" >
@@ -213,6 +204,7 @@
                                 <div class="form-group col-md-12">
                                     <div class="col-md-3 no-padding text-right">
                                         <label for="password1" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">密码:</label>
+                                        <label for="bond_id" style="color: red;">*</label>
                                     </div>
                                     <div class="col-md-9">
                                         <input id="password1" type="password" name="password" class="form-control input-lg" placeholder="请输入登陆密码(至少6个字符)">
@@ -221,6 +213,7 @@
                                 <div class="form-group col-md-12">
                                     <div class="col-md-3 no-padding text-right">
                                         <label for="password2" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">确认密码:</label>
+                                        <label for="bond_id" style="color: red;">*</label>
                                     </div>
                                     <div class="col-md-9">
                                         <input id="password2" type="password"  name="repassword" class="form-control input-lg" placeholder="请再次输入密码" >
@@ -229,6 +222,7 @@
                                 <div class="form-group col-md-12">
                                     <div class="col-md-3 no-padding text-right">
                                         <label for="id_card" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">身份证:</label>
+                                        <label for="bond_id" style="color: red;">*</label>
                                     </div>
                                     <div class="col-md-9">
                                         <input type="text" class="form-control input-lg" id="id_card" name="id_card" placeholder="请输入身份证号">
@@ -237,6 +231,7 @@
                                 <div class="form-group col-md-12">
                                     <div class="col-md-3 no-padding text-right">
                                         <label for="name" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">姓名:</label>
+                                        <label for="bond_id" style="color: red;">*</label>
                                     </div>
                                     <div class="col-md-9">
                                         <input type="text" class="form-control input-lg" id="name" name="name" placeholder="请输入您的姓名">
@@ -245,6 +240,7 @@
                                 <div class="form-group col-md-12">
                                     <div class="col-md-3 no-padding text-right">
                                         <label for="gender" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">性别:</label>
+                                        <label for="bond_id" style="color: red;">*</label>
                                     </div>
                                     <div id="gender" class="col-md-9">
                                         <label class="radio-inline col-md-5 input-lg" style="color: rgba(153,153,153,1)" >
@@ -258,6 +254,7 @@
                                 <div class="form-group col-md-12">
                                     <div class="col-md-3 no-padding text-right">
                                         <label for="phone" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">联系电话:</label>
+                                        <label for="bond_id" style="color: red;">*</label>
                                     </div>
                                     <div class="col-md-9">
                                         <input type="number" class="form-control input-lg" id="phone" name="phone" placeholder="请输入手机号">
@@ -266,6 +263,7 @@
                                 <div class="form-group col-md-12" id="email_div">
                                     <div class="col-md-3 no-padding text-right">
                                         <label for="email" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">邮箱:</label>
+                                        <label for="bond_id" style="color: red;">*</label>
                                     </div>
                                     <div class="col-md-9">
                                         <input type="text" class="form-control input-lg" id="email" name="email"  placeholder="请输入邮箱" title="邮箱正确格式：xxx@xxx.com">
@@ -274,6 +272,7 @@
                                 <div class="form-group col-md-12" id="address_div">
                                     <div class="col-md-3 no-padding text-right">
                                         <label for="address" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">地址:</label>
+                                        <label for="bond_id" style="color: red;">*</label>
                                     </div>
                                     <div class="col-md-9">
                                         <input type="text" class="form-control input-lg" id="address" name="address" placeholder="请输入您的地址">
@@ -282,6 +281,7 @@
                                 <div class="form-group col-md-12" id="occupation_div">
                                     <div class="col-md-3 no-padding text-right">
                                         <label for="occupation" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">职业:</label>
+                                        <label for="bond_id" style="color: red;">*</label>
                                     </div>
                                     <div class="col-md-9">
                                         <input type="text" class="form-control input-lg" id="occupation" name="occupation" placeholder="请输入您的职业">
@@ -290,6 +290,7 @@
                                 <div class="form-group col-md-12" id="education_div">
                                     <div class="col-md-3 no-padding text-right">
                                         <label for="education" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">教育水平:</label>
+                                        <label for="bond_id" style="color: red;">*</label>
                                     </div>
                                     <div class="col-md-9">
                                         <select required id="education" name="education" class="form-control input-lg" oninvalid="setCustomValidity('*请选择您的学历')" oninput="setCustomValidity('')" style="color: rgba(153,153,153,1)" >
@@ -307,6 +308,7 @@
                                 <div class="form-group col-md-12" id="workplace_div">
                                     <div class="col-md-3 no-padding text-right">
                                         <label for="workplace" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">工作地点:</label>
+                                        <label for="bond_id" style="color: red;">*</label>
                                     </div>
                                     <div class="col-md-9">
                                         <input type="text" class="form-control input-lg" id="workplace" name="workplace" placeholder="请输入工作地点">
@@ -315,6 +317,7 @@
                                 <div class="form-group col-md-12" id="business_license_div">
                                     <div class="col-md-3 no-padding text-right">
                                         <label for="business_license" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">营业执照:</label>
+                                        <label for="bond_id" style="color: red;">*</label>
                                     </div>
                                     <div class="col-md-9">
                                         <input type="text" class="form-control input-lg" id="business_license" name="business_license" placeholder="请输入营业执照">
@@ -323,6 +326,7 @@
                                 <div class="form-group col-md-12" id="manager_name_div">
                                     <div class="col-md-3 no-padding text-right">
                                         <label for="manager_name" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">经理姓名:</label>
+                                        <label for="bond_id" style="color: red;">*</label>
                                     </div>
                                     <div class="col-md-9">
                                         <input type="text" class="form-control input-lg" id="manager_name" name="manager_name" placeholder="请输入公司经理姓名">
@@ -331,6 +335,7 @@
                                 <div class="form-group col-md-12" id="manager_id_card_div">
                                     <div class="col-md-3 no-padding text-right">
                                         <label for="manager_id_card" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">经理身份证:</label>
+                                        <label for="bond_id" style="color: red;">*</label>
                                     </div>
                                     <div class="col-md-9">
                                         <input type="text" class="form-control input-lg" id="manager_id_card" name="manager_id_card" placeholder="请输入公司身份证号">
@@ -339,6 +344,7 @@
                                 <div class="form-group col-md-12" id="manager_phone_div">
                                     <div class="col-md-3 no-padding text-right">
                                         <label for="manager_phone" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">经理电话:</label>
+                                        <label for="bond_id" style="color: red;">*</label>
                                     </div>
                                     <div class="col-md-9">
                                         <input type="text" class="form-control input-lg" id="manager_phone" name="manager_phone" placeholder="请输入公司经理联系电话">
