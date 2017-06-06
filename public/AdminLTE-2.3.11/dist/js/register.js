@@ -45,7 +45,7 @@ $().ready(function () {
     $('#manager_name_div').hide();
     $('#manager_phone_div').hide();
     $('#business_license_div').hide();
-    $('#id_card_div').hide();
+    $('#passport_div').hide();
     user_valid();
     //alert("open the window");
     $("#register_form").validate({
