@@ -13,6 +13,8 @@ router.post('/',function(req, res) {
     var type			 = req.body.type;
     var	status			 = req.body.status;
     var name			 = req.body.name;
+    var card_type        = req.body.cardtype;
+    var passport         = req.body.passport;
     var id_card			 = req.body.id_card;
     var gender			 = req.body.gender;
     var phone			 = req.body.phone;
@@ -27,6 +29,10 @@ router.post('/',function(req, res) {
     var manager_id_card	 = req.body.manager_id_card;
     var manager_phone	 = req.body.manager_phone;
 
+    if(card_type > 0){
+        id_card = passport;
+    }
+    
     var newUser = new User({
         username		 : username,
         password		 : password,

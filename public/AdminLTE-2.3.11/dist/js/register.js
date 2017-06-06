@@ -45,6 +45,7 @@ $().ready(function () {
     $('#manager_name_div').hide();
     $('#manager_phone_div').hide();
     $('#business_license_div').hide();
+    $('#id_card_div').hide();
     user_valid();
     //alert("open the window");
     $("#register_form").validate({
@@ -233,6 +234,17 @@ $("#user-type-2").click(function () {
     $('#address_div').hide();
     $('#email_div').hide();
     //alert($("input[name='optionsRadios']:checked").val());
+});
+
+$("#card-type-1").click(function () {
+    $('#id_card_div').show();
+    $('#passport_div').hide();
+    alert($("#card-type-1").value());
+});
+
+$("#card-type-2").click(function () {
+    $('#id_card_div').hide();
+    $('#passport_div').show();
 });
 
 $("#close-modal").click(function () {

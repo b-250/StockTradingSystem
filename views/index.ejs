@@ -221,13 +221,36 @@
                                 </div>
                                 <div class="form-group col-md-12">
                                     <div class="col-md-3 no-padding text-right">
-                                        <label for="id_card" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">身份证:</label>
+                                        <label for="card-type" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">账户类型:</label>
+                                        <label for="bond_id" style="color: red;">*</label>
+                                    </div>
+                                    <div id="card-type" class="col-md-9">
+                                        <label class="radio-inline col-md-5 input-lg" style="color: rgba(153,153,153,1)" >
+                                            <input type="radio" id="card-type-1" name="cardtype" value="0" checked="checked"> 身份证
+                                        </label>
+                                        <label class="radio-inline col-md-5 input-lg" style="color: rgba(153,153,153,1)">
+                                            <input type="radio" id="card-type-2" name="cardtype" value="1"> 护照
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12" id="id_card_div">
+                                    <div class="col-md-3 no-padding text-right">
+                                        <label for="id_card" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">证件号码:</label>
                                         <label for="bond_id" style="color: red;">*</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control input-lg" id="id_card" name="id_card" placeholder="请输入身份证号">
+                                        <input type="text" class="form-control input-lg" id="id_card" name="id_card" placeholder="请输入证件号码">
                                     </div>
                                 </div>
+                                <div class="form-group col-md-12" id="passport_div">
+                                    <div class="col-md-3 no-padding text-right">
+                                        <label for="passport" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">证件号码:</label>
+                                        <label for="bond_id" style="color: red;">*</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control input-lg" id="passport" name="passport" placeholder="请输入证件号码">
+                                    </div>
+                                </div>                               
                                 <div class="form-group col-md-12">
                                     <div class="col-md-3 no-padding text-right">
                                         <label for="name" class="login-pwd input-lg" style="color: rgba(153,153,153,1)">姓名:</label>
