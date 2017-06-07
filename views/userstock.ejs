@@ -170,7 +170,8 @@ desired effect
                   <th> 交易时间 </th>
                   <th> 详情 </th>
                 </tr> 
-                <% for(var i=0;i<data.length;i++){ %>
+                <% num = (data.length>50)? 50 : data.length %>
+                <% for(var i=0;i<num;i++){ %>
                   <tr>
                     <td> <%= data[i].stockCode %></td>
                     <td> <%= data[i].amount %> </td>

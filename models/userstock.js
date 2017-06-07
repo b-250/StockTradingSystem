@@ -40,4 +40,25 @@ UserStock.prototype.userstockInfo = function(callback){
     });
   });
 }
+
+UserStock.prototype.userrecordInfo = function(callback){
+  var userstock = {
+    account : this.account,
+    stockCode : this.stockCode,
+    amount : this.amount,
+    updateTime : this.updateTime
+  };
+  console.log("username: "+userstock.account);
+  var SELECT_USERRECORD = "SELECT * FROM traderecords WHERE code in (SELECT stockCode FROM userstocks WHERE account = ?)";
+  pool.getConnection(function(err,connection){
+    connection.query(SELECT_USERRECORD,[userstock.account],function(err,result){
+      if(err){
+        console.log("SELECT_USERRECORD Error: "+err.message);
+        return;
+      }
+      connection.release();
+      callback(err,result);
+    })
+  });
+}
 module.exports = UserStock;
