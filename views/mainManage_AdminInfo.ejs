@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>查看用户交易信息</title>
+  <title>股票系统管理</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -39,7 +39,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="mainManage.html" class="logo">
+    <a href="/mainManage" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
@@ -70,7 +70,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <!-- The user image in the navbar-->
               <img src="/AdminLTE-2.3.11/dist/img/user8-128x128.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">管理员01</span>
+              <span class="hidden-xs"><%=username %></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -78,7 +78,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <img src="/AdminLTE-2.3.11/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  管理员01 - 股票系统管理员
+                  <%=username %> - 股票系统管理员
                   
                 </p>
               </li>
@@ -115,7 +115,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="/AdminLTE-2.3.11/dist/img/user8-128x128.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>管理员01</p>
+          <p><%=username %></p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -124,7 +124,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- search form (Optional) -->
       <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="查找交易记录...">
+          <input type="text" name="q" class="form-control" placeholder="查找记录...">
               <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                 </button>
@@ -142,7 +142,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <li><a href="/openAccountManage"><i class="fa fa-circle-o text-red"></i> <span>开户管理</span></a></li>
         <li><a href="/closeAccountManage"><i class="fa fa-circle-o text-yellow"></i> <span>销户管理</span></a></li>
         <li><a href="/lossReportManage"><i class="fa fa-circle-o text-aqua"></i> <span>挂失管理</span></a></li>
-      </ul>
+	 </ul>
       <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
@@ -153,86 +153,59 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        交易系统管理
-        <small>查看用户交易信息</small>
+        股票系统管理主页
+        <small>管理员信息修改</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="mainManage.html"><i class="fa fa-dashboard"></i> 管理员</a></li>
-		<li><a href="#">交易系统管理</a></li>
-        <li class="active">查看用户交易信息</li>
+        <li><a href="/mainManage_AdminInfo"><i class="fa fa-dashboard"></i> 管理员</a></li>
+        <li class="active">个人信息修改</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
-		<form action="#" method="post">
-			 <div class="box">
-				<div class="box-header">
-				  <h3 class="box-title">查找用户</h3>
-				</div>
-				<div class="box-body">
-				  <div class="input-group margin">
-					<input type="text" class="form-control" name="username" placeholder="用户证件号？..">
-						<span class="input-group-btn">
-						  <button type="submit" class="btn btn-info btn-flat">查找</button>
-						</span>
-				  </div>
-				  <table id="example2" class="table table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>标识</th>
-                                                <th>股票代码</th>
-                                                <th>提交时间</th>
-                                                <th>买卖类型</th>
-                                                <th>手数</th>
-                                                <th>价格</th>
-                                                <th>挂单时间</th>
-                                                <th>用户id</th>
-                                                <th>用户账户</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <% for(var i=0;i<data.length;i++){ %>
-                                            <tr>
-                                                <td>
-                                                    <%= data[i].number %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].code %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].time %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].type %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].volume %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].price %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].during %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].id %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].account %>
-                                                </td>
-                                            </tr><% } %>
-                                        </tbody>
-                                    </table>
-                                    
-				  <!-- /input-group -->
-				</div>
-				<!-- /.box-body -->
-			  </div>
-		  <!-- Your Page Content Here -->
-		</form>
-      <!-- Your Page Content Here -->
+<div class="row">
+        <!-- left column -->
+        <div class="col-md-6">
+          <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">修改信息</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form" action="/mainManage_AdminInfo" method="post">
+              <div class="box-body">
+				<div class="form-group">
+                  <label for="exampleInputPassword1">用户名</label>
+                  <input type="text" class="form-control" id="exampleInputPassword1"  name="username" value = "<%=username %>">
+                </div>
+				<div class="form-group">
+                  <label for="exampleInputPassword1">密码</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" name="password" value = "<%=password %>">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">身份证号</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="idcard" value = "<%=idcard %>">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">联系电话</label>
+                  <input type="tel" class="form-control" id="exampleInputPassword1" name="phone" value = "<%=phone %>">
+                </div>
+               
+               
+              </div>
+              <!-- /.box-body -->
 
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">确认修改</button>
+				<br><%= msg%>
+              </div>
+            </form>
+          </div>
+          
+			</div>
+		</div>
     </section>
     <!-- /.content -->
   </div>

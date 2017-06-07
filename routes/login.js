@@ -67,7 +67,11 @@ router.post("/",function(req, res) {
             if(result[0]['password'] == password){
 				//判断用户状态				
 				var user = {'username':username};
-				
+				if(type == "admin")
+				{					
+					req.session.user = user;//保存用户session信息
+					res.send({code:1, msg:'登录成功', userinfo : user});
+				}				
 				switch(result[0]['userstatus'])
 				{
 					case "Valid":
@@ -79,13 +83,9 @@ router.post("/",function(req, res) {
 							req.session.user = user;//保存用户session信息
 							res.send({code:1, msg:'登录成功', userinfo : user});
 						}
-						//res.redirect('/main');
-						else if(type == "admin")
-						{
-							res.send({code:1, msg:'登录成功', userinfo : user});
-							//res.redirect('/mainManage');
-						}
-						break;
+						else
+							alert("无效的用户类型");
+						break
 					}
 					case "OpenApply":
 					{

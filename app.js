@@ -1,3 +1,4 @@
+/*Author: A1 & A3*/
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -15,15 +16,32 @@ var regist = require('./routes/regist');
 var main = require('./routes/main');
 var logout = require('./routes/logout');
 var editmainpage = require('./routes/editmainpage');
-var mainManage = require('./routes/mainManage');
 var mainpage = require('./routes/mainpage');
 var password = require('./routes/password');
 var orders = require('./routes/orders');
 var userstock = require('./routes/userstock');
 var traderecord = require('./routes/traderecord');
 var discard = require('./routes/discard');
+//管理员界面
+var mainManage = require('./routes/mainManage');
+var mainManage_AdminInfo = require('./routes/mainManage_AdminInfo');
+//开户管理
+var openAccountManage = require('./routes/openAccountManage');
+var openApplyDetail = require('./routes/openApplyDetail');
+var openApplyPass = require('./routes/openApplyPass');
+var openApplyReject = require('./routes/openApplyReject');
+//挂失管理
+var lossReportManage = require('./routes/lossReportManage');
+var lossReportDetail = require('./routes/lossReportDetail');
+var lossResult = require('./routes/lossResult');
+var lossDisResult = require('./routes/lossDisResult');
+//管理员交易系统管理
 var tradeManage_stock = require('./routes/tradeManage_stock');
 var tradeManage_user = require('./routes/tradeManage_user');
+//销户管理
+var closeAccountManage = require('./routes/closeAccountManage');
+var closeInfoPage = require('./routes/closeInfoPage');
+var closePass = require('./routes/closePass');
 
 var app = express();
 
@@ -57,16 +75,32 @@ app.use('/edit', edit);
 app.use('/regist', regist);
 app.use('/main', main);
 app.use('/editmainpage', editmainpage);
-app.use('/mainManage', mainManage);
 app.use('/mainpage', mainpage);
 app.use('/traderecord', traderecord);
 app.use('/password', password);
 app.use('/orders', orders);
 app.use('/userstock', userstock);
 app.use('/discard', discard);
-app.use('/tradeManage_stock', tradeManage_stock);
-app.use('/tradeManage_user', tradeManage_user);
-
+//管理员界面
+app.use('/mainManage', mainManage);
+app.use('/mainManage_AdminInfo', mainManage_AdminInfo);
+//开户管理
+app.use('/openAccountManage', openAccountManage);
+app.use('/openApplyDetail',openApplyDetail);
+app.use('/openApplyPass',openApplyPass);
+app.use('/openApplyReject',openApplyReject);
+//挂失管理
+app.use('/lossReportManage', lossReportManage);
+app.use('/lossReportDetail', lossReportDetail);
+app.use('/lossResult',lossResult);
+app.use('/lossDisResult',lossDisResult);
+//管理员交易系统管理
+app.use('/tradeManage_stock',tradeManage_stock);
+app.use('/tradeManage_user',tradeManage_user);
+//销户管理
+app.use('/closeAccountManage',closeAccountManage);
+app.use('/closeInfoPage',closeInfoPage);
+app.use('/closePass',closePass);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

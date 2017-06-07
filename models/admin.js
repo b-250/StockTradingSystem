@@ -1,3 +1,5 @@
+/*Author: Zhao Zihan*/
+/**/
 var mysql = require('mysql');
 
 var pool = mysql.createPool({
@@ -8,7 +10,7 @@ var pool = mysql.createPool({
       port : 23
   });
   
-//���Լ���connection�¼���������sessionֵ
+//可以监听connection事件，并设置session值
 pool.on('connnection',function(connection){
   console.log("pool on");
   connection.query('SET SESSION auto_increment_increment=1')
@@ -21,7 +23,7 @@ function Admin(admin){
   this.phone 	= admin.phone;
 }
 
-//�����û����õ��û�����
+//根据用户名得到用户数量
 Admin.prototype.userNum = function(username, callback) {
   pool.getConnection(function(err,connection){
     console.log("getConnection");
@@ -58,4 +60,51 @@ Admin.prototype.userInfo = function(callback){
     });
   });
 }
+
+Admin.prototype.userReportLoss = function(callback){
+  var user = {
+	userstatus : 1
+  }
+  var SELECT_LOGIN ="SELECT * FROM admin WHERE userstatus = ?";
+  pool.getConnection(function(err,connection){
+    connection.query(SELECT_LOGIN, [user.userstatus], function(err,result){
+      if (err) {
+        console.log("SELECT_LOGIN Error: " + err.message);
+        return;
+      }
+      connection.release();
+      console.log(result);
+      callback(err,result);
+    });
+  });
+}
+
+Admin.prototype.displayInfo = function(username, callback){
+  var SELECT_INFO ="SELECT  password, idcard, phone FROM admin WHERE USERNAME = ?";
+  pool.getConnection(function(err,connection){
+    connection.query(SELECT_INFO,[username],function(err,result){
+      if (err) {
+        console.log("SELECT_INFO Error: " + err.message);
+        return;
+      }
+      connection.release();
+      callback(err,result);
+    });
+  });
+}
+
+Admin.prototype.modifyInfo = function(username,password,idcard,phone,callback){
+  var UPDATE_INFO ="UPDATE admin SET PASSWORD = ?,IDCARD = ?, PHONE = ? WHERE USERNAME = ?";
+  pool.getConnection(function(err,connection){
+    connection.query(UPDATE_INFO,[password,idcard,phone,username],function(err,result){
+      if (err) {
+        console.log("UPDATE_INFO Error: " + err.message);
+        return;
+      }
+      connection.release();
+      callback(err,result);
+    });
+  });
+}
+
 module.exports = Admin;

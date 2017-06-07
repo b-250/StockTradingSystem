@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>查看股票交易信息</title>
+        <title>查看用户交易信息</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
         <!-- Bootstrap 3.3.6 -->
@@ -62,7 +62,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <!-- The user image in the navbar-->
-                     <img src="/AdminLTE-2.3.11/dist/img/user8-128x128.jpg" class="user-image" alt="User Image" /> 
+                    <img src="/AdminLTE-2.3.11/dist/img/user8-128x128.jpg" class="user-image" alt="User Image" /> 
                     <!-- hidden-xs hides the username on small devices so only the image appears. -->
                      
                     <span class="hidden-xs">管理员01</span></a>
@@ -136,7 +136,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
                     <li class="header">证券账户管理</li>
                     <li>
-                        <a href="openAccountManage">
+                        <a href="/openAccountManage">
                         <i class="fa fa-circle-o text-red"></i> 
                         <span>开户管理</span></a>
                     </li>
@@ -160,85 +160,64 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>交易系统管理 
-                <small>查看股票交易信息</small></h1>
+                <small>查看用户交易信息</small></h1>
                 <ol class="breadcrumb">
                     <li>
-                        <a href="/mainManage">
+                        <a href="mainManage.html">
                         <i class="fa fa-dashboard"></i> 管理员</a>
                     </li>
                     <li>
                         <a href="#">交易系统管理</a>
                     </li>
-                    <li class="active">查看股票交易信息</li>
+                    <li class="active">查看用户交易信息</li>
                 </ol>
             </section>
             <!-- Main content -->
             <section class="content">
-                <form action="#" method="post">
-                    <div class="box">
-                        <div class="box-header">
-                            <h3 class="box-title">查找股票</h3>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">挂失申请列表</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                                <table id="example2" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>申请账号</th>
+                                            <th>身份证号</th>
+                                            <th>待审核状态</th>
+                                            <th>处理意见</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% for(var i=0;i<data.length;i++){ %>
+                                        <tr>
+                                            <td>
+                                                <%= data[i]["username"] %>
+                                            </td>
+                                            <td>
+                                                <%= data[i].id_card %>
+                                            </td>
+                                            <td>
+                                                <%= data[i].userstatus %>
+                                            </td>
+                                            <td>
+												<a href='/lossReportDetail?username=<%= data[i]["username"]%>'>查看详细</a>
+                                            </td>
+                                        </tr><% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
                         </div>
-                        <div class="box-body">
-                            <div class="input-group margin">
-                            <input type="text" class="form-control" name="stock_id" placeholder="股票ID？.." /> 
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn btn-info btn-flat">查找</button>
-                            </span></div>
-                            <!-- /input-group -->
-                        </div>
-						<table id="example2" class="table table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>标识</th>
-                                                <th>股票代码</th>
-                                                <th>提交时间</th>
-                                                <th>买卖类型</th>
-                                                <th>手数</th>
-                                                <th>价格</th>
-                                                <th>挂单时间</th>
-                                                <th>用户id</th>
-                                                <th>用户账户</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <% for(var i=0;i<data.length;i++){ %>
-                                            <tr>
-                                                <td>
-                                                    <%= data[i].number %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].code %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].time %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].type %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].volume %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].price %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].during %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].id %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].account %>
-                                                </td>
-                                            </tr><% } %>
-                                        </tbody>
-                                    </table>
-                  
-                        <!-- /.box-body -->
+                        <!-- /.box -->
+                        <!-- /.box -->
                     </div>
-                    <!-- Your Page Content Here -->
-                </form>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
             </section>
             <!-- /.content -->
         </div>
@@ -248,7 +227,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- To the right -->
         <div class="pull-right hidden-xs">Anything you want</div>
         <!-- Default to the left -->
-        <strong>Copyright � 2017 
+        <strong>Copyright � 2017 
         <a href="#">zhaoziji</a>.</strong> All rights reserved.</footer>
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
