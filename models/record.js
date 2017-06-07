@@ -45,7 +45,7 @@ Record.prototype.recordInfo = function(callback){
     type : this.type
   };
  
-  var SELECT_RECORD ="SELECT * FROM traderecords WHERE CODE = ?";
+  var SELECT_RECORD ="SELECT * FROM traderecords WHERE VOLUME < ?";
   pool.getConnection(function(err,connection){
     connection.query(SELECT_RECORD,[record.code],function(err,result){
       if (err) {

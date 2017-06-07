@@ -30,6 +30,7 @@ router.post("/",function(req, res) {
     var password = req.body.password;
     var type	 = req.body.loginType;
     console.log(username);
+    //console.log(req);
     console.log(type);
     if(type == "user")
         var login = new User({
