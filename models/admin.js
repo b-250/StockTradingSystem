@@ -21,6 +21,7 @@ function Admin(admin){
   this.password = admin.password;
   this.idcard 	= admin.idcard;
   this.phone 	= admin.phone;
+  this.type		= admin.type;
 }
 
 //根据用户名得到用户数量
@@ -45,8 +46,8 @@ Admin.prototype.userInfo = function(callback){
     username : this.username,
     password : this.password,
 	idcard 	 : this.idcard,
-	phone    : this.phone
-  };
+	phone    : this.phone,
+	type	 : this.type };
  
   var SELECT_LOGIN ="SELECT * FROM admin WHERE USERNAME = ?";
   pool.getConnection(function(err,connection){

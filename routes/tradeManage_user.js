@@ -7,24 +7,31 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res) {
-	var username = req.body.username;	
-	console.log(username + ' in function');
-	var trans = new Transaction({
-			account : username
-		});
-	trans.TransListByAccount(trans.account, function(err,result){
-		console.log("data");
-		if(err){
-			res.render('tradeManage_user', {errMsg:""});
-			return;
-		}
-		else{
+	var user = req.session.user;	
+	console.log("I'm here.");
+	console.log(user.type);
+	if(user.type == "low")
+		res.render('tradeManage_user', {errMsg:'权限不足，无法查看',data:''});	
+	else
+	{
+		var username = req.body.username;	
+		console.log(username + ' in function');
+		var trans = new Transaction({
+				account : username
+			});
+		trans.TransListByAccount(trans.account, function(err,result){
 			console.log("data");
-			res.render('tradeManage_user', {data:result});
-			return;
-		}
-	});
-	//res.render('tradeManage_user', { username:user.username});
+			if(err){
+				res.render('tradeManage_user', {errMsg:""});
+				return;
+			}
+			else{
+				console.log("data");
+				res.render('tradeManage_user', {data:result});
+				return;
+			}
+		});
+	}
 });
 
 module.exports = router;

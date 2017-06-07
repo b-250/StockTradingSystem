@@ -29,8 +29,6 @@ router.post("/",function(req, res) {
     var username = req.body.username;
     var password = req.body.password;
     var type	 = req.body.loginType;
-    console.log(username);
-    console.log(type);
     if(type == "user")
         var login = new User({
             username : username,
@@ -70,6 +68,9 @@ router.post("/",function(req, res) {
 				if(type == "admin")
 				{					
 					req.session.user = user;//保存用户session信息
+					req.session.user.type = result[0].type;
+					console.log("result[0].type: "+result[0].type);
+					console.log("req.session.user.type: "+req.session.user.type);
 					res.send({code:1, msg:'登录成功', userinfo : user});
 				}				
 				switch(result[0]['userstatus'])

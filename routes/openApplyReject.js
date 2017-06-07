@@ -11,16 +11,13 @@ router.get('/', function(req, res, next) {
 	 console.log("here"); 
 	var process = new openApplyProcess();
 	process.rejectApply(id,function(err,result){
-		 if(err){
+		if(err){
 		res.render('openApplyReject', {errMsg: err });
 		return;
 		}
-		 console.log(result);  
-		
-			
-		});
+		console.log(result);			
+	});
 	res.render('openApplyReject', { username:user.username});
-
 });
 module.exports = router;
 

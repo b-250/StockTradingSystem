@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
 	phone = new String(result[0].phone); 
 	res.render('mainManage_AdminInfo', { username:user.username, password:pass, idcard:idcard, phone:phone,msg:' '});
 	});
-	});
+});
 router.post("/",function(req, res) {
 	//获取form表单提交的登录数据
 	var oldName = req.session.user.username;
