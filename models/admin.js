@@ -93,10 +93,10 @@ Admin.prototype.displayInfo = function(username, callback){
   });
 }
 
-Admin.prototype.modifyInfo = function(username,password,idcard,phone,callback){
-  var UPDATE_INFO ="UPDATE admin SET PASSWORD = ?,IDCARD = ?, PHONE = ? WHERE USERNAME = ?";
+Admin.prototype.modifyInfo = function(oldName, newName,password,idcard,phone,callback){
+  var UPDATE_INFO ="UPDATE admin SET USERNAME = ?, PASSWORD = ?,IDCARD = ?, PHONE = ? WHERE USERNAME = ?";
   pool.getConnection(function(err,connection){
-    connection.query(UPDATE_INFO,[password,idcard,phone,username],function(err,result){
+    connection.query(UPDATE_INFO,[newName,password,idcard,phone,oldName],function(err,result){
       if (err) {
         console.log("UPDATE_INFO Error: " + err.message);
         return;
