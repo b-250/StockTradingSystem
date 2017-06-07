@@ -1,3 +1,4 @@
+/*Author: Zhou Shuyue*/
 var express = require('express');
 var router = express.Router();
 var openApplyProcess = require("../models/open.js");

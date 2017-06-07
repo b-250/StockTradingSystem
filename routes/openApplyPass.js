@@ -1,3 +1,4 @@
+/*Author: Zhou Shuyue*/
 var express = require('express');
 var router = express.Router();
 var openApplyProcess = require("../models/open.js");
@@ -10,13 +11,11 @@ router.get('/', function(req, res, next) {
 	 console.log("here"); 
 	var process = new openApplyProcess();
 	process.passApply(id,function(err,result){
-		 if(err){
+		if(err){
 		res.render('openApplyPass', {errMsg: err });
 		return;
 		}
-		 console.log(result);  
-		
-			
+		 console.log(result); 			
 		});
 	res.render('openApplyPass', { username:user.username});
 
