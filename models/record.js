@@ -23,6 +23,7 @@ pool.on('connnection',function(connection){
 });
 
 function Record(record){
+  this.username = record.username;
   this.code = record.code;
   this.date = record.date;
   this.time = record.time;
@@ -35,6 +36,7 @@ function Record(record){
 
 Record.prototype.recordInfo = function(callback){
  var record = {
+	username : this.username,
     code : this.code,
     date : this.date,
     time : this.time,
@@ -45,15 +47,17 @@ Record.prototype.recordInfo = function(callback){
     type : this.type
   };
  
-  var SELECT_RECORD ="SELECT * FROM traderecords WHERE VOLUME < ?";
+  var SELECT_RECORD ="SELECT * FROM traderecords WHERE purchaser = ?";
   pool.getConnection(function(err,connection){
-    connection.query(SELECT_RECORD,[record.code],function(err,result){
+    connection.query(SELECT_RECORD,[record.username],function(err,result){
       if (err) {
         console.log("SELECT_RECORD Error: " + err.message);
         return;
       }
       connection.release();
       callback(err,result);
+	  
+	  console.log(result);
     });
   });
 }

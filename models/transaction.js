@@ -1,17 +1,11 @@
 var mysql = require('mysql');
 
-/*var pool = mysql.createPool({
-      host : '127.0.0.1',
-      user : 'root',
-      password :'',
-      database:'nodedb',
-      port : 3306
-  });*/
+
 var pool = mysql.createPool({
       host : 'tdsql-219vguff.sh.cdb.myqcloud.com',
-      user : 'group4',
-      password :'group4..',
-      database:'stockg4',
+      user : 'group1',
+      password :'group1..',
+      database:'stockg1',
       port : 23
   });
 //可以监听connection事件，并设置session值
