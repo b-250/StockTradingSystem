@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
 	  if(err){
 		res.render('lossReportDetail', {username:username, errMsg:"", data:""});
 	  }else{
-		res.render('lossReportDetail', {username:username, errMsg:"", data:result, title: 'Express' });
+		res.render('lossReportDetail', {username:username, errMsg:"", data:result[0], title: 'Express' });
 	  }
 	});
 

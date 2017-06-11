@@ -159,7 +159,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-md-6">
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">销户信息详情</h3>
@@ -226,16 +226,14 @@
 	                  <td><%= data["manager_phone"] %></td>
 	                </tr>
                 <% } %>
-
-
                 <tr>
-                  <td></td>
-                  <td style='float:right;'>
-                    <button style='width:100px;' onclick='jump(true,<%= data["userid"] %>)'>通过</button>
-                    <button style='width:100px;' onclick='jump(false,<%= data["userid"] %>)'>不通过</button>
+                  <th>
+                    <button onclick='jump(true,<%= data["userid"] %>)'>通过</button>
+                    </th>
+                  <td >
+                    <button onclick='jump(false,<%= data["userid"] %>)'>不通过</button>
                   </td>
-                </tr>
-               
+                </tr>               
               </table>
             </div>
             <!-- /.box-body -->

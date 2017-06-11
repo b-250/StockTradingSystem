@@ -53,12 +53,12 @@ User.prototype.userList = function(callback){
 
 User.prototype.userDelete = function(username, callback){
   console.log("agree");
-  var DELETE_AGREE = "DELETE FROM useraccount WHERE username = ?";
+  var LOSS_AGREE = "UPDATE useraccount SET userstatus = 'LossPass' WHERE username = ?";
   var SELECT_LEFT = "SELECT FROM useraccount WHERE userstatus = 'LossReport'";
     pool.getConnection(function(err,connection){
-        connection.query(DELETE_AGREE,[username],function(err,result){
+        connection.query(LOSS_AGREE,[username],function(err,result){
         if (err) {
-          console.log("DELETE_AGREE Error: " + err.message);
+          console.log("LOSS_AGREE Error: " + err.message);
           return;
         }
         //connection.release();

@@ -6,17 +6,17 @@ var displayApplyDetail = require("../models/open.js");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	var user = req.session.admin;
+	var admin = req.session.admin;
 	var name = req.query.name;
 	console.log(name);
 	var applyDetail = new displayApplyDetail();
 	applyDetail.openApplyDetail(name, function(err,result){
 		 if(err){
-		res.render('manageOpenAccount', {errMsg: err });
+		res.render('manageOpenAccount', {username:admin.username, errMsg: err, data:[]});
 		return;
 		}
-		console.log(result); 
-		res.render('openApplyDetail', { username:user.username, data:result});
+		res.render('openApplyDetail', { username:admin.username,  errMsg: "",  data:result[0]});
+		console.log(result);
 	});
 
 
