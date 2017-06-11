@@ -7,7 +7,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var ejs = require('ejs');
+var redisStore = require('connect-redis')(session)
+var randomstring = require('randomstring')
 
+var redis = require('./models/Redisdb');
 var index = require('./routes/index');
 var login = require('./routes/login');
 var users = require('./routes/users');
@@ -61,13 +64,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // 设置 Session
+
 app.use(session({
-     secret: '12345',
-     name: 'demo',   //这里的name值得是cookie的name，默认cookie的name是：connect.sid
-     cookie: {maxAge: 1800000 },  //设置maxAge是80000ms，即80s后session和相应的cookie失效过期
-     resave: false,
-     saveUninitialized: true,
- }));
+    store: new redisStore({
+        client: redis.client
+    }),
+    secret: randomstring.generate({
+        length: 128,
+        charset: 'alphabetic'
+    }),
+    cookie: {
+        maxAge: 60000*10000000
+    },
+    resave: true,
+    saveUninitialized: true
+}));
+
 
 app.use('/', index);
 app.use('/login',login);

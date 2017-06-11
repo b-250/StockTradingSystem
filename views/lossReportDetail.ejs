@@ -178,33 +178,73 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example2" class="table table-bordered table-hover">
-              <thead></thead>
-              <tbody>
-              <% for(var i=0;i<data.length;i++){ %>
                 <tr>
-                  <th>userid</th>
-                  <td><%= data[i].userid %></td>
+                  <th>账户类型</th>
+                  <td><%= data["usertype"] %></td>
                 </tr>
                 <tr>
-                  <th>userstatus</th>
-                  <td><%= data[i].userstatus %></td>
+                  <th>用户名</th>
+                  <td><%= data["username"] %></td>
                 </tr>
                 <tr>
-                  <th>username</th>
-                  <td><%= data[i].username %></td>
+                  <th>身份证号</th>
+                  <td><%= data["id_card"] %></td>
                 </tr>
                 <tr>
-                  <th>id_card</th>
-                  <td><%= data[i].id_card %></td>
+                  <th>姓名</th>
+                  <td><%= data["name"] %></td>
                 </tr>
                 <tr>
-                  <td><a href='/lossResult?username=<%= data[i]["username"]%>'>同意</a></td>
-                  <td><a href='/lossDisResult?username=<%= data[i]["username"]%>'>拒绝</a></td>
+                  <th>性别</th>
+                  <td><%= data["gender"] %></td>
                 </tr>
+                <tr>
+                  <th>联系电话</th>
+                  <td><%= data["phone"] %></td>
+                </tr>
+                <% if(data["usertype"] == 0) {%>
+                  <tr>
+                    <th>邮箱</th>
+                    <td><%= data["email"] %></td>
+                  </tr>
+                  <tr>
+                    <th>地址</th>
+                    <td><%= data["address"] %></td>
+                  </tr>
+                  <tr>
+                    <th>教育</th>
+                    <td><%= data["education"] %></td>
+                  </tr>
+                  <tr>
+                    <th>工作地址</th>
+                    <td><%= data["workplace"] %></td>
+                  </tr>
+                  <tr>
+                    <th>代理人ID</th>
+                    <td><%= data["agent_id"] %></td>
+                  </tr>
+                <% }else{ %>
+                  <tr>
+                    <th>营业执照</th>
+                    <td><%= data["business_license"] %></td>
+                  </tr>
+                  <tr>
+                    <th>公司经理身份证号</th>
+                    <td><%= data["manager_id_card"] %></td>
+                  </tr>
+                  <tr>
+                    <th>公司经理联系电话</th>
+                    <td><%= data["manager_phone"] %></td>
+                  </tr>
                 <% } %>
-              </tbody>
+                <tr>
+                  <td><a href='/lossResult?username=<%= data["username"]%>'>同意</a></td>
+                  <td><a href='/lossDisResult?username=<%= data["username"]%>'>拒绝</a></td>
+                </tr>
+
               </table>
             </div>
+
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
