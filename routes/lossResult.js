@@ -11,9 +11,9 @@ var username = req.query.username;
 var user=new User({});
 user.userDelete(username, function(err,result){
   if(err){
-    res.render('lossResult', {username:username, errMsg:""});
+    res.render('lossResult', {username:username, errMsg:"", data:""});
   }else{
-    res.render('lossResult', {data:result });
+    res.render('lossResult', {username:username, errMsg:"", data:result });
   }
 });
 

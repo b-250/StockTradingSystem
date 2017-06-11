@@ -44,7 +44,7 @@ User.prototype.userClosePass=function(userid,status,callback){
 }
 
 User.prototype.userCloseInfo = function(callback){
-  var SELECT_CLOSE ="SELECT * FROM useraccount WHERE userstatus = 'Close'";//销户列表，按照时间顺序排序？？？？？？？？？
+  var SELECT_CLOSE ="SELECT * FROM useraccount WHERE userstatus = 'closeApply'";//销户列表
   pool.getConnection(function(err,connection){
     connection.query(SELECT_CLOSE,function(err,result){
       if (err) {

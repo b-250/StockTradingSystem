@@ -156,25 +156,29 @@ desired effect
     <!-- Main content -->
     <section class="content">
 
-
-      <div class="box box-primary">
-        <div class="box-header">
-          <h3 class="box-title">持有挂单</h3>
-        </div>
-        <div class="box-body">
-          <div class="col-md-12">
-            <table class = "table table-hover">
-              <tbody>
-                <tr>
-                  <th> 订单号 </th>
-                  <th> 股票代码 </th>
-                  <th> 交易类型 </th>
-                  <th> 成交手 </th>
-                  <th> 成交价格(元) </th>
-                  <th> 交易时间 </th>
-                </tr> 
-                <% for(var i=0;i<data.length;i++){ %>
-                  <tr>
+<section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+				<h3 class="box-title">持有挂单</h3>
+			</div>
+			<div class="box-body">
+			
+				<table id="example2" class="table table-bordered table-hover">
+				 <thead>
+					<tr>
+					<th> 订单号 </th>
+					<th> 股票代码 </th>
+					<th> 交易类型 </th>
+					<th> 成交手 </th>
+					<th> 成交价格(元) </th>
+					<th> 交易时间 </th>
+					</tr> 
+					 </thead>
+					<tbody>
+						<% for(var i=0;i<data.length;i++){ %>
+					<tr>
                     <td> <%= data[i].orderID %></td>
                     <td> <%= data[i].stockID %></td>
                     <td> <%= data[i].buyOrSell %></td>
@@ -190,6 +194,7 @@ desired effect
           </div>
         </div>
       </div>
+ </div>
 
 
       
@@ -284,15 +289,33 @@ desired effect
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 2.2.3 -->
-<script src="/AdminLTE-2.3.11/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="/AdminLTE-2.3.11//plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
-<script src="/AdminLTE-2.3.11/bootstrap/js/bootstrap.min.js"></script>
+<script src="/AdminLTE-2.3.11//bootstrap/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="/AdminLTE-2.3.11//plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/AdminLTE-2.3.11//plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="/AdminLTE-2.3.11//plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="/AdminLTE-2.3.11//plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
-<script src="/AdminLTE-2.3.11/dist/js/app.min.js"></script>
-
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. Slimscroll is required when using the
-     fixed layout. -->
+<script src="/AdminLTE-2.3.11//dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/AdminLTE-2.3.11//dist/js/demo.js"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
+</script>
 </body>
 </html>
