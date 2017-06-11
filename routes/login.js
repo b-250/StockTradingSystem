@@ -80,8 +80,8 @@ console.log(type);
 				switch(result[0]['userstatus'])
 				{
 					case "Valid":
-					case "Close":	
-					case "CloseNotPass":					
+					case "CloseApply":	
+					case "CloseNotPass":				
 					{						
 						if(type == "user")
 						{
@@ -104,6 +104,20 @@ console.log(type);
 						//res.locals.status = "fail";
 						console.log('* 账户申请挂失');
 						res.send({code: 3, msg: ' * 账户已申请挂失，拒绝登录', userinfo : user});
+						break;
+					}
+					case "LossPass":
+					{
+						//res.locals.status = "fail";
+						console.log('* 账户已挂失');
+						res.send({code: 3, msg: ' * 账户已挂失', userinfo : user});
+						break;
+					}
+					case "ClosePass":
+					{
+						//res.locals.status = "fail";
+						console.log('* 该账户已销户');
+						res.send({code: 3, msg: ' * 该账户已销户', userinfo : user});
 						break;
 					}
 				}				 

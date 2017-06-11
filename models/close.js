@@ -23,11 +23,11 @@ function User(){
 }
 
 User.prototype.userClosePass=function(userid,status,callback){
-	if(status==true){
-		var UPDATE="UPDATE useraccount SET userstatus = 'closePass' WHERE userid = ?";
+	if(status=="true"){
+		var UPDATE="UPDATE useraccount SET userstatus = 'ClosePass' WHERE userid = ?";
 	}
 	else{
-		var UPDATE="UPDATE useraccount SET userstatus = 'closeNotPass' WHERE userid = ?";
+		var UPDATE="UPDATE useraccount SET userstatus = 'CloseNotPass' WHERE userid = ?";
 	}
 	var SELECT="SELECT * FROM useraccount WHERE userid = ?";
 
