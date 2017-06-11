@@ -86,7 +86,7 @@ console.log(type);
 						if(type == "user")
 						{
 							req.session.user = user;//保存用户session信息
-							res.send({code:1, msg:'登录成功', userinfo : user});
+							res.send({code:1, msg:'登录成功', userinfo : user, sessionid: req.sessionID});
 						}
 						else
 							alert("无效的用户类型");

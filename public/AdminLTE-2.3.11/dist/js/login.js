@@ -56,12 +56,16 @@ $().ready(function () {
                         }
                         else
                         {
+                            //alert(sessionid);
                             $('#login-modal').modal('hide');
                             $("#login-button").hide();
                             $("#register-button").hide();
                             $("#user-menu").show();
                             $("#user-menu-name").text(result.userinfo.username);
                             $("#dropdown-user-name").text(result.userinfo.username);
+                            $.cookie("sessionid", result.sessionid);
+                            $("#stockmarket").attr('href', 'http://112.74.124.145:3002/?session=' + result.sessionid);
+                            $("#tradeaccount").attr('href', 'http://112.74.124.145:3001/?session=' + result.sessionid);
                         }
                         
                     }

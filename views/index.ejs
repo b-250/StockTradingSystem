@@ -22,7 +22,9 @@
     <link rel="stylesheet" href="/AdminLTE-2.3.11/dist/css/mycss.css">
 
     <!-- jQuery 2.2.3 -->
+    <!--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>-->
     <script src="/AdminLTE-2.3.11/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <script type="text/javascript" src="/AdminLTE-2.3.11/dist/js/jquery.validate.min.js" ></script>
     <script type="text/javascript" src="/AdminLTE-2.3.11/dist/js/jquery-form.js" ></script>
     <!-- Bootstrap 3.3.6 -->
@@ -55,19 +57,33 @@
             //alert(obj.style.height);
         }
 
-        window.onload = function()
+        function setsession()
         {
             var obj = document.getElementById("mainp");
             var h = document.documentElement.clientHeight - 51;
             obj.style.setProperty('height', h.toString() + 'px', 'important');
+            if($.cookie('sessionid'))
+            {
+                $("#stockmarket").attr('href', 'http://112.74.124.145:3002/?session=' + $.cookie('sessionid'));
+                $("#tradeaccount").attr('href', 'http://112.74.124.145:3001/?session=' + $.cookie('sessionid'));
+            }
+            else
+            {
+                $("#stockmarket").attr('href', 'http://112.74.124.145:3002/?session=#');
+                $("#tradeaccount").attr('href', 'http://112.74.124.145:3001/?session=#');
+            }
             //alert(obj.style.height);
+        }
+        function clearsession()
+        {
+            $.cookie('sessionid','#');
         }
     </script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 </head>
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
-<body class="hold-transition skin-blue layout-top-nav" style = "margin-bottom: 0px">
+<body class="hold-transition skin-blue layout-top-nav" style = "margin-bottom: 0px" onload = "setsession()">
 
 <div class="wrapper" >
 
@@ -85,7 +101,7 @@
                 <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="/">首页 </a></li>
-                        <li><a href="http://localhost:3005">股票市场 </a></li>
+                        <li><a href="http://112.74.124.145:3002/?session=#" id = "stockmarket">股票市场 </a></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -139,12 +155,12 @@
                                         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                     </div>
                                     <div class="pull-left">
-                                        <a href="http://localhost:3002/homepage" class="btn btn-default btn-flat">资金账户</a>
+                                        <a href="http://112.74.124.145:3001/?session=#" id = "tradeaccount" class="btn btn-default btn-flat">资金账户</a>
                                     </div>
 
 
                                     <div class="pull-right">
-                                        <a href="/logout" class="btn btn-default btn-flat">登出</a>
+                                        <a href="/logout" class="btn btn-default btn-flat" onclick = "clearsession()">登出</a>
                                     </div>
                                 </li>
                             </ul>
