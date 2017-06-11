@@ -56,6 +56,7 @@ console.log(type);
             //res.render('index', {errMsg: err });
             return;
         }
+		console.log(result);
         if(result == ''){
             var user = {'username':''};
             //res.locals.status = "fail";

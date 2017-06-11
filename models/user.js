@@ -1,13 +1,18 @@
 /*Author: Zihan Zhao of A1
  Modified: Initial status changed to "OpenApply 6/1/2017"*/
 var mysql = require('mysql');
-
-
+/*var pool = mysql.createPool({
+      host : '127.0.0.1',
+      user : 'root',
+      password :'',
+      database:'nodedb',
+      port : 3306
+  });*/
 var pool = mysql.createPool({
       host : 'tdsql-219vguff.sh.cdb.myqcloud.com',
-      user : 'group1',
-      password :'group1..',
-      database:'stockg1',
+      user : 'group4',
+      password :'group4..',
+      database:'stockg4',
       port : 23
   });
   
@@ -215,4 +220,25 @@ User.prototype.CloseApply = function(callback){
   });
 }
 
+User.prototype.lossReport = function(callback){
+	var user = {
+    username : this.username};
+  
+  var UPDATE_INFO =
+  "UPDATE useraccount SET userstatus = 'LossReport' WHERE USERNAME = ?";
+  
+  console.log("username: " + this.username);
+  
+  pool.getConnection(function(err,connection){
+    connection.query(UPDATE_INFO,
+	[user.username], function(err,result){
+      if (err) {
+        console.log("UPDATE_INFO Error: " + err.message);
+        return;
+      }
+      connection.release();
+      callback(err,result);
+    });
+  });
+}
 module.exports = User;

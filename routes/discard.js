@@ -37,18 +37,18 @@ router.post('/',function(req, res) {
 			 && result[0]['id_card'] == idnumber
 			 && result[0]['name'] 	 == name){
 				CloseApply.CloseApply(function (err, results) {
-				console.log("CloseApply function calling");
-				if(err){
-					console.log("invalid Apply to close account");
-					res.send({code:0, msg: '销户申请失败'});
-					return;
-				}
-				else
-				{
-					res.send({code:200, msg: '销户申请成功,请等待管理员审核'});
-					return;
-				}
-			});
+					console.log("CloseApply function calling");
+					if(err){
+						console.log("invalid Apply to close account");
+						res.send({code:0, msg: '销户申请失败'});
+						return;
+					}
+					else
+					{
+						res.send({code:200, msg: '销户申请成功,请等待管理员审核'});
+						return;
+					}
+				});
                 
             }
             else{

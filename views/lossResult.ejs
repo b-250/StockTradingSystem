@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>股票系统管理</title>
+  <title>查看用户交易信息</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -39,7 +39,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="#" class="logo">
+    <a href="mainManage.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
@@ -90,7 +90,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <a href="/mainManage_AdminInfo" class="btn btn-default btn-flat">个人信息</a>
                 </div>
                 <div class="pull-right">
-                  <a href="/logout" class="btn btn-default btn-flat">登出</a>
+                  <a href="logout.html" class="btn btn-default btn-flat">登出</a>
                 </div>
               </li>
             </ul>
@@ -124,7 +124,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- search form (Optional) -->
       <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="查找记录...">
+          <input type="text" name="q" class="form-control" placeholder="查找交易记录...">
               <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                 </button>
@@ -142,7 +142,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <li><a href="/openAccountManage"><i class="fa fa-circle-o text-red"></i> <span>开户管理</span></a></li>
         <li><a href="/closeAccountManage"><i class="fa fa-circle-o text-yellow"></i> <span>销户管理</span></a></li>
         <li><a href="/lossReportManage"><i class="fa fa-circle-o text-aqua"></i> <span>挂失管理</span></a></li>
-	 </ul>
+      </ul>
       <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
@@ -153,21 +153,49 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        股票系统管理主页
-        <small>欢迎您！</small>
+        交易系统管理
+        <small>查看用户交易信息</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> 管理员</a></li>
-        <li class="active">主页面</li>
+        <li><a href="mainManage.html"><i class="fa fa-dashboard"></i> 管理员</a></li>
+		<li><a href="#">交易系统管理</a></li>
+        <li class="active">查看用户交易信息</li>
       </ol>
     </section>
 
     <!-- Main content -->
+    <div id = "content">
+    </div>
     <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">挂失申请列表</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+              <thead>
+               <tr><th>冻结成功！</th></tr> 
+               <tr><td><a href='lossReportManage?'>返回</a></td></tr>
+              </thead>
+              <tbody>
+                
+              </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
 
-      <!-- Your Page Content Here -->
-
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
     </section>
+
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -276,3 +304,4 @@ scratch. This page gets rid of all links and provides the needed markup only.
      fixed layout. -->
 </body>
 </html>
+

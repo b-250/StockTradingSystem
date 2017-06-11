@@ -22,6 +22,7 @@ var orders = require('./routes/orders');
 var userstock = require('./routes/userstock');
 var traderecord = require('./routes/traderecord');
 var discard = require('./routes/discard');
+var loss = require('./routes/loss');
 //管理员界面
 var mainManage = require('./routes/mainManage');
 var mainManage_AdminInfo = require('./routes/mainManage_AdminInfo');
@@ -81,6 +82,7 @@ app.use('/password', password);
 app.use('/orders', orders);
 app.use('/userstock', userstock);
 app.use('/discard', discard);
+app.use('/loss', loss);
 //管理员界面
 app.use('/mainManage', mainManage);
 app.use('/mainManage_AdminInfo', mainManage_AdminInfo);

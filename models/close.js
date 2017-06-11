@@ -1,13 +1,19 @@
 var mysql=require('mysql');
 
+/*var pool = mysql.createPool({
+      host : '127.0.0.1',
+      user : 'root',
+      password :'',
+      database:'nodedb',
+      port : 3306
+  });*/
 var pool = mysql.createPool({
       host : 'tdsql-219vguff.sh.cdb.myqcloud.com',
-      user : 'group1',
-      password :'group1..',
-      database:'stockg1',
+      user : 'group4',
+      password :'group4..',
+      database:'stockg4',
       port : 23
   });
-  
 pool.on('connection',function(connection){
 	console.log("closePage: pool on");
 	connection.query('SET SESSION auto_increment_increment=1');

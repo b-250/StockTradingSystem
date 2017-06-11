@@ -27,7 +27,7 @@ router.post('/', function(req, res) {
 			}
 			else{
 				console.log("data");
-				res.render('tradeManage_user', {data:result});
+				res.render('tradeManage_user', {errMsg:"",data:result});
 				return;
 			}
 		});
