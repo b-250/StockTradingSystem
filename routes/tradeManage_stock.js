@@ -3,7 +3,8 @@ var router = express.Router();
 var Record = require("../models/record.js");
 
 router.get('/', function(req, res, next) {
-	res.render('tradeManage_stock', {errMsg:'',data:''});		
+	var username = req.session.user.username;
+	res.render('tradeManage_stock', {username:username, errMsg:'',data:''});		
 });
 
 router.post('/', function(req, res) {

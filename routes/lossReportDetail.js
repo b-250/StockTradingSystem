@@ -11,9 +11,9 @@ router.get('/', function(req, res) {
 	var user=new User({});
 	user.userInfo(username, function(err,result){
 	  if(err){
-		res.render('lossReportDetail', {username:username, errMsg:""});
+		res.render('lossReportDetail', {username:username, errMsg:"", data:""});
 	  }else{
-		res.render('lossReportDetail', {title: 'Express', data:result });
+		res.render('lossReportDetail', {username:username, errMsg:"", data:result, title: 'Express' });
 	  }
 	});
 

@@ -11,9 +11,9 @@ router.get('/', function(req, res) {
 	var user=new User({});
 	user.userRefuse(username, function(err,result){
 	  if(err){
-		res.render('lossDisResult', {username:username, errMsg:""});
+		res.render('lossDisResult', {username:username, data:"", errMsg:""});
 	  }else{
-		res.render('lossDisResult', {data:result });
+		res.render('lossDisResult', {username:username, data:result, errMsg:""});
 	  }
 	});
 
