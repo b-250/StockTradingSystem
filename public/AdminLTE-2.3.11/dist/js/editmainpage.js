@@ -24,7 +24,6 @@ $().ready(function () {
     $("#edit_form").validate({
         submitHandler : function(form) {  //验证通过后的执行方法
             //当前的form通过ajax方式提交（用到jQuery.Form文件）
-            alert("提交表单");
             $(form).ajaxSubmit({
                 dataType:"json",
                 success:function( jsondata ){
@@ -156,5 +155,5 @@ $().ready(function () {
 
 });
 $('#edit_btn').click(function () {
-    alert("clik the button");
+    //alert("clik the button");
 });
