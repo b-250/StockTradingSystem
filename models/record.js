@@ -11,10 +11,10 @@ var mysql = require('mysql');
   });*/
 var pool = mysql.createPool({
       host : 'tdsql-219vguff.sh.cdb.myqcloud.com',
-      user : 'group5',
-      password :'group5..',
+      user : 'group1',
+      password :'group1..',
       database:'stockg5',
-      port : 23
+      port : 26
   });
 //可以监听connection事件，并设置session值
 pool.on('connnection',function(connection){
@@ -33,32 +33,65 @@ function Record(record){
   this.amount = record.amount;
   this.type = record.type;
 }
-
+//用户个人交易记录
 Record.prototype.recordInfo = function(callback){
- var record = {
-	username : this.username,
-    code : this.code,
-    date : this.date,
-    time : this.time,
-    price : this.price,
-    change : this.change,
-    volume : this.volume,
-    amount : this.amount,
-    type : this.type
-  };
- 
-  var SELECT_RECORD ="SELECT * FROM traderecords WHERE purchaser = ?";
-  pool.getConnection(function(err,connection){
-    connection.query(SELECT_RECORD,[record.username],function(err,result){
-      if (err) {
-        console.log("SELECT_RECORD Error: " + err.message);
-        return;
-      }
-      connection.release();
-      callback(err,result);
-	  
-	  console.log(result);
-    });
-  });
+	var record = {
+		username : this.username,
+		code : this.code,
+		date : this.date,
+		time : this.time,
+		price : this.price,
+		change : this.change,
+		volume : this.volume,
+		amount : this.amount,
+		type : this.type
+	};
+	console.log(record.username);
+	var SELECT_RECORD ="SELECT * FROM traderecords WHERE purchaser = ?";
+	pool.getConnection(function(err,connection){
+			connection.query(SELECT_RECORD,[record.username],function(err,result){		
+				console.log(SELECT_RECORD);
+				if (err) {
+					console.log("SELECT_RECORD Error: " + err.message);
+					return;
+				}
+				connection.release();
+				callback(err,result);
+				console.log(result);
+			});
+		});
+	}
+
+//根据用户名得到交易
+Record.prototype.TransListByAccount = function(account, callback) {
+    var SELECT_TRANS = "SELECT * FROM traderecords WHERE purchaser = ? or seller = ?";
+	pool.getConnection(function(err,connection){
+		console.log("TransListByAccount_pool");
+		connection.query(SELECT_TRANS,[account,account],function(err,result){
+			if (err) {
+				console.log("SELECT_TRANS(account) Error: " + err.message);
+				return;
+			}
+			connection.release();
+			callback(err,result);
+		});
+	});
 }
+
+//根据股票名得到交易
+Record.prototype.TransListByCode = function(code, callback) {
+    var SELECT_TRANS = "SELECT * FROM traderecords WHERE code = ?";
+	pool.getConnection(function(err,connection){
+		connection.query(SELECT_TRANS,[code],function(err,result){
+			if (err) {
+				console.log("SELECT_TRANS(code) Error: " + err.message);
+				return;
+			}
+			connection.release();
+			callback(err,result);
+		});
+	});
+}	
+	
+
 module.exports = Record;

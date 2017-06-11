@@ -12,7 +12,7 @@ var pool = mysql.createPool({
       user : 'group1',
       password :'group1..',
       database:'stockg1',
-      port : 23
+      port : 26
   });
 pool.on('connection',function(connection){
 	console.log("closePage: pool on");

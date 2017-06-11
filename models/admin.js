@@ -14,7 +14,7 @@ var pool = mysql.createPool({
       user : 'group1',
       password :'group1..',
       database:'stockg1',
-      port : 23
+      port : 26
   });
 //可以监听connection事件，并设置session值
 pool.on('connnection',function(connection){

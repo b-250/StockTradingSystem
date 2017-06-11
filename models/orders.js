@@ -14,7 +14,7 @@ var pool = mysql.createPool({
       user : 'group4',
       password :'group4..',
       database:'stockg4',
-      port : 23
+      port : 26
   });
 //可以监听connection事件，并设置session值
 pool.on('connnection',function(connection){
@@ -43,7 +43,7 @@ Orders.prototype.ordersInfo = function(callback){
     orderNum : this.orderNum
   };
  
-  var SELECT_ORDERS ="SELECT * FROM orders WHERE userAccount = ?";
+  var SELECT_ORDERS ="SELECT * FROM orders WHERE userID = ?";
   pool.getConnection(function(err,connection){
     connection.query(SELECT_ORDERS,[orders.userAccount],function(err,result){
       if (err) {

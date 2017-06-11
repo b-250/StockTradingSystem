@@ -6,7 +6,7 @@ var Orders = require("../models/orders.js");
 router.get('/', function(req, res) {
     var username	 = req.session.user.username;
 	var orders = new Orders({
-		userAccount : 0
+		userAccount : username
 	});
 	orders.ordersInfo(function(err,result){
 		res.render('orders', {data: result});

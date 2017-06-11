@@ -191,53 +191,37 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <!-- /input-group -->
                         </div>
 						<table id="example2" class="table table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>标识</th>
-                                                <th>股票代码</th>
-                                                <th>提交时间</th>
-                                                <th>买卖类型</th>
-                                                <th>手数</th>
-                                                <th>价格</th>
-                                                <th>挂单时间</th>
-                                                <th>用户id</th>
-                                                <th>用户账户</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <% for(var i=0;i<data.length;i++){ %>
-                                            <tr>
-                                                <td>
-                                                    <%= data[i].number %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].code %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].time %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].type %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].volume %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].price %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].during %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].id %>
-                                                </td>
-                                                <td>
-                                                    <%= data[i].account %>
-                                                </td>
-                                            </tr><% } %>
-                                        </tbody>
-                                    </table>
-                  
+							<thead>
+								<tr>
+									<th> 股票名称 </th>
+									<th> 交易日期 </th>
+									<th> 交易时间 </th>
+									<th> 成交价格(元) </th>
+									<th> 涨跌幅 </th>
+									<th> 成交手 </th>
+									<th> 成交金额(元) </th>
+									<th> 买卖类型 </th>
+									<th> 买家 </th>
+									<th> 卖家 </th>
+								</tr>
+							</thead>
+							<tbody>
+								<% for(var i=0;i<data.length;i++){ %>
+									<tr>
+										<td> <%= data[i].code %></td>
+										<td> <%= data[i].date %> </td>
+										<td> <%= data[i].time %> </td>
+										<td> <%= data[i].price %> </td>
+										<td> <%= data[i].change %> </td>
+										<td> <%= data[i].volume %> </td>
+										<td> <%= data[i].amount %> </td>
+										<td> <%= data[i].type %> </td>
+										<td> <%= data[i].purchaser %> </td>
+										<td> <%= data[i].seller %> </td>
+									</tr> 
+								<%}%>
+							</tbody>
+                        </table>                  
                         <!-- /.box-body -->
                     </div>
                     <!-- Your Page Content Here -->

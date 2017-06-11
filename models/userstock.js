@@ -5,7 +5,7 @@ var pool = mysql.createPool({
       user : 'group5',
       password :'group5..',
       database:'stockg5',
-      port : 23
+      port : 26
   });
 //可以监听connection事件，并设置session值
 pool.on('connnection',function(connection){
@@ -49,7 +49,7 @@ UserStock.prototype.userrecordInfo = function(callback){
     updateTime : this.updateTime
   };
   console.log("username: "+userstock.account);
-  var SELECT_USERRECORD = "SELECT * FROM traderecords WHERE code in (SELECT stockCode FROM userstocks WHERE account = ?)";
+  var SELECT_USERRECORD = "SELECT * FROM userstocks WHERE account = ?";
   pool.getConnection(function(err,connection){
     connection.query(SELECT_USERRECORD,[userstock.account],function(err,result){
       if(err){
