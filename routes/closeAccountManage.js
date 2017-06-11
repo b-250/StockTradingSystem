@@ -5,7 +5,7 @@ var User = require('../models/close.js')
 /* GET home page. */
 router.get('/',function(req,res){
 	//从session中获取当前登录管理员账号信息
-	var admin=req.session.user;
+	var admin=req.session.admin;
 
 	var user=new User({});
 	user.userCloseInfo(function(err,result){

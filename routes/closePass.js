@@ -8,7 +8,7 @@ router.get('/',function(req,res){
 	var userid=req.query.userid;
 	var status=req.query.status;
 	//从session中获取当前登录管理员账号信息
-	var admin=req.session.user;
+	var admin=req.session.admin;
 
 	var user=new User({});
 	user.userClosePass(userid,status,function(err,result){

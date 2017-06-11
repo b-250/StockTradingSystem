@@ -3,12 +3,12 @@ var router = express.Router();
 var Record = require("../models/record.js");
 
 router.get('/', function(req, res, next) {
-	var username = req.session.user.username;
+	var username = req.session.admin.username;
 	res.render('tradeManage_stock', {username:username, errMsg:'',data:''});		
 });
 
 router.post('/', function(req, res) {
-	var user = req.session.user;	
+	var user = req.session.admin;	
 	if(user.type == "low")
 		res.render('tradeManage_stock', {errMsg:'权限不足，无法查看',data:''});	
 	else

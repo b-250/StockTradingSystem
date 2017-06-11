@@ -3,7 +3,7 @@ var router = express.Router();
 var User = require("../models/loss.js");
 
 router.get('/', function(req, res) {
-	var username = req.session.user.username;
+	var username = req.session.admin.username;
 	var user = new User({});	
 	user.userList(function(err,result){
 	  if(err){

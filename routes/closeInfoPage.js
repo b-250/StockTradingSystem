@@ -7,7 +7,7 @@ router.get('/',function(req,res){
 	//当前要处理的用户id
 	var userid=req.query.userid;
 	//从session中获取当前登录管理员账号信息
-	var admin=req.session.user;
+	var admin=req.session.admin;
 
 	var user=new User({});
 	user.userCloseInfoPage(userid,function(err,result){

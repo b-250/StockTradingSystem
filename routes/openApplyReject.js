@@ -6,7 +6,7 @@ var openApplyProcess = require("../models/open.js");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	var user = req.session.user;
+	var user = req.session.admin;
 	var id = req.query.id;
 	 console.log("here"); 
 	var process = new openApplyProcess();

@@ -3,12 +3,12 @@ var router = express.Router();
 var Record = require("../models/record.js");
 
 router.get('/', function(req, res, next) {
-	var username = req.session.user.username;
+	var username = req.session.admin.username;
 	res.render('tradeManage_user', {username:username, errMsg:'',data:''});		
 });
 
 router.post('/', function(req, res) {
-	var user = req.session.user;	
+	var user = req.session.admin;	
 	//console.log("I'm here.");
 	//console.log(user.type);
 	if(user.type == "low")

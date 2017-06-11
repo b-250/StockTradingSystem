@@ -4,7 +4,7 @@ var modifyAdmin = require("../models/admin.js");
 var displayAdmin = require("../models/admin.js");
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	var user = req.session.user;
+	var user = req.session.admin;
 	var info = new displayAdmin({username : user.username});
 	var pass;
 	var idcard;
@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
 });
 router.post("/",function(req, res) {
 	//获取form表单提交的登录数据
-	var oldName = req.session.user.username;
+	var oldName = req.session.admin.username;
 	var newName = req.body.username;
 	var password = req.body.password;
 	var idcard	 = req.body.idcard;
@@ -42,8 +42,8 @@ router.post("/",function(req, res) {
 			return;
 		}
 		var user = {'username':newName, 'password':password, 'idcard':idcard, 'phone':phone};
-		req.session.user = user;//保存用户session信息
-		console.log(req.session.user.username);
+		req.session.admin = user;//保存用户session信息
+		console.log(req.session.admin.username);
 		res.render('mainManage_AdminInfo',{'username':newName, 'password':password, 'idcard':idcard, 'phone':phone,msg:'修改成功！'});
 	});	
 });

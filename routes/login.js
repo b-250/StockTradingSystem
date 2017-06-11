@@ -71,10 +71,10 @@ console.log(type);
 				var user = {'username':username};
 				if(type == "admin")
 				{					
-					req.session.user = user;//保存用户session信息
-					req.session.user.type = result[0].type;
+					req.session.admin = user;//保存用户session信息
+					req.session.admin.type = result[0].type;
 					console.log("result[0].type: "+result[0].type);
-					console.log("req.session.user.type: "+req.session.user.type);
+					console.log("req.session.user.type: "+req.session.admin.type);
 					res.send({code:1, msg:'登录成功', userinfo : user});
 				}				
 				switch(result[0]['userstatus'])

@@ -26,6 +26,7 @@ var loss = require('./routes/loss');
 //管理员界面
 var mainManage = require('./routes/mainManage');
 var mainManage_AdminInfo = require('./routes/mainManage_AdminInfo');
+var mainManage_logout = require('./routes/mainManage_logout');
 //开户管理
 var openAccountManage = require('./routes/openAccountManage');
 var openApplyDetail = require('./routes/openApplyDetail');
@@ -86,6 +87,7 @@ app.use('/loss', loss);
 //管理员界面
 app.use('/mainManage', mainManage);
 app.use('/mainManage_AdminInfo', mainManage_AdminInfo);
+app.use('/mainManage_logout', mainManage_logout);
 //开户管理
 app.use('/openAccountManage', openAccountManage);
 app.use('/openApplyDetail',openApplyDetail);
