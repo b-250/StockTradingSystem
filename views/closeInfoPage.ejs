@@ -191,38 +191,43 @@
                   <th>联系电话</th>
                   <td><%= data["phone"] %></td>
                 </tr>
-                <tr>
-                  <th>邮箱</th>
-                  <td><%= data["email"] %></td>
-                </tr>
-                <tr>
-                  <th>地址</th>
-                  <td><%= data["address"] %></td>
-                </tr>
-                <tr>
-                  <th>教育</th>
-                  <td><%= data["education"] %></td>
-                </tr>
-                <tr>
-                  <th>工作地址</th>
-                  <td><%= data["workplace"] %></td>
-                </tr>
-                <tr>
-                  <th>代理人ID</th>
-                  <td><%= data["agent_id"] %></td>
-                </tr>
-                <tr>
-                  <th>营业执照</th>
-                  <td><%= data["business_license"] %></td>
-                </tr>
-                <tr>
-                  <th>公司经理身份证号</th>
-                  <td><%= data["manager_id_card"] %></td>
-                </tr>
-                <tr>
-                  <th>公司经理联系电话</th>
-                  <td><%= data["manager_phone"] %></td>
-                </tr>
+                <% if(data["usertype"] == 0) {%>
+	                <tr>
+	                  <th>邮箱</th>
+	                  <td><%= data["email"] %></td>
+	                </tr>
+	                <tr>
+	                  <th>地址</th>
+	                  <td><%= data["address"] %></td>
+	                </tr>
+	                <tr>
+	                  <th>教育</th>
+	                  <td><%= data["education"] %></td>
+	                </tr>
+	                <tr>
+	                  <th>工作地址</th>
+	                  <td><%= data["workplace"] %></td>
+	                </tr>
+	                <tr>
+	                  <th>代理人ID</th>
+	                  <td><%= data["agent_id"] %></td>
+	                </tr>
+                <% }else{ %>
+	                <tr>
+	                  <th>营业执照</th>
+	                  <td><%= data["business_license"] %></td>
+	                </tr>
+	                <tr>
+	                  <th>公司经理身份证号</th>
+	                  <td><%= data["manager_id_card"] %></td>
+	                </tr>
+	                <tr>
+	                  <th>公司经理联系电话</th>
+	                  <td><%= data["manager_phone"] %></td>
+	                </tr>
+                <% } %>
+
+
                 <tr>
                   <td></td>
                   <td style='float:right;'>

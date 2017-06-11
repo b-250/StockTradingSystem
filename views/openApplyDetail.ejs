@@ -160,49 +160,74 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example2" class="table table-bordered table-hover">            
-                <tbody>              
-				<tr>         
-                  <th>用户ID</th>
-				  <td><%= data[0].userid %></td>               
-				  
-                </tr>       		 
-				<tr>           
-                  <th>用户类型</th>
-				   <td><%= data[0].usertype %></td>                 
-				  
-                </tr>      
-				 <tr>             
-                  <th>申请人用户名</th>
-				   <td><%= data[0].username %></td>          			  
-                </tr>  
-				<tr>             
-                  <th>证件号</th>
-				   <td><%= data[0].id_card %></td>        			  
-                </tr> 
-				 <tr>             
+              <table id="example2" class="table table-bordered table-hover">
+                <tr>
+                  <th>账户类型</th>
+                  <td><%= data["usertype"] %></td>
+                </tr>
+                <tr>
+                  <th>用户名</th>
+                  <td><%= data["username"] %></td>
+                </tr>
+                <tr>
+                  <th>身份证号</th>
+                  <td><%= data["id_card"] %></td>
+                </tr>
+                <tr>
                   <th>姓名</th>
-				   <td><%= data[0].name %></td>          			  
-                </tr> 
-				 <tr>             
+                  <td><%= data["name"] %></td>
+                </tr>
+                <tr>
                   <th>性别</th>
-				   <td><%= data[0].gender %></td>           			  
-                </tr> 
-				 <tr>             
-                  <th>联系方式</th>
-				  <td><%= data[0].phone %></td>        			  
-                </tr> 
-			
-                </tbody>
-               
+                  <td><%= data["gender"] %></td>
+                </tr>
+                <tr>
+                  <th>联系电话</th>
+                  <td><%= data["phone"] %></td>
+                </tr>
+                <% if(data["usertype"] == 0) {%>
+                  <tr>
+                    <th>邮箱</th>
+                    <td><%= data["email"] %></td>
+                  </tr>
+                  <tr>
+                    <th>地址</th>
+                    <td><%= data["address"] %></td>
+                  </tr>
+                  <tr>
+                    <th>教育</th>
+                    <td><%= data["education"] %></td>
+                  </tr>
+                  <tr>
+                    <th>工作地址</th>
+                    <td><%= data["workplace"] %></td>
+                  </tr>
+                  <tr>
+                    <th>代理人ID</th>
+                    <td><%= data["agent_id"] %></td>
+                  </tr>
+                <% }else{ %>
+                  <tr>
+                    <th>营业执照</th>
+                    <td><%= data["business_license"] %></td>
+                  </tr>
+                  <tr>
+                    <th>公司经理身份证号</th>
+                    <td><%= data["manager_id_card"] %></td>
+                  </tr>
+                  <tr>
+                    <th>公司经理联系电话</th>
+                    <td><%= data["manager_phone"] %></td>
+                  </tr>
+                <% } %>
+                <tr>
+                  <td><a href="/openApplyPass?id=<%= data[0].userid %>">通过申请</a></td>
+                  <td><a href="/openApplyReject?id=<%= data[0].userid %>">拒绝申请</a></td>
+                </tr>
+
               </table>
             </div>
-			<div class="box-footer">
-               <!-- <button type="submit" class="btn btn-primary" onclick="/openAccountSucceed">通过申请</button>-->
-			   <a href="/openApplyPass?id=<%= data[0].userid %>">通过申请</a>
-			   <a href="/openApplyReject?id=<%= data[0].userid %>">拒绝申请</a>
-              </div>
-          </div>
+            
 
         </div>
   
