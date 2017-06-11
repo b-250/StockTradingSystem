@@ -9,7 +9,7 @@ router.get('/', function(req, res) {
 		userAccount : username
 	});
 	orders.ordersInfo(function(err,result){
-		res.render('orders', {data: result});
+		res.render('orders', {data: result,username:username});
 
 	});
   

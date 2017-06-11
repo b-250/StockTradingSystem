@@ -9,7 +9,7 @@ router.get('/', function(req, res) {
 		username : user.username
 	});
 	login.userInfo(function(err,result){
-		res.render('editmainpage', {data: result});
+		res.render('editmainpage', {data: result,username:user.username});
 
 	});
   

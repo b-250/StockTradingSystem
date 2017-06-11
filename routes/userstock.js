@@ -9,7 +9,7 @@ router.get('/', function(req, res) {
 		account : username
 	});
 	userstock.userstockInfo(function(err,result){
-		res.render('userstock', {data: result});
+		res.render('userstock', {data: result,username:username});
 
 	});
   

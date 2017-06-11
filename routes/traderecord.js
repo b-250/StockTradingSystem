@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 		username:username
 	});
 	record.recordInfo(function(err,result){
-		res.render('traderecord', {data: result});
+		res.render('traderecord', {data: result,username:username});
 		console.log(result);
 	});
 });

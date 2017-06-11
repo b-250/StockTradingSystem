@@ -4,7 +4,8 @@ var User = require("../models/user.js");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('password');
+  var username = req.session.user.username;
+  res.render('password',{username:username});
 });
 
 /*Author: Zihan Zhao of A1*/

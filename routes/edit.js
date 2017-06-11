@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 	login.userInfo(function(err,result){
 		console.log("Edit result:");
 		console.log(result);
-		res.render('mainpage', {data: result});
+		res.render('mainpage', {data: result,username:user.username});
 	});
 });
 

@@ -5,7 +5,8 @@ var User = require("../models/user.js");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('discard');
+  var username	 = req.session.user.username;
+  res.render('discard',{username:username});
 });
 
 router.post('/',function(req, res) {
