@@ -30,8 +30,7 @@ router.post("/",function(req, res) {
     var password = req.body.password;
     var type	 = req.body.loginType;
     console.log(username);
-    //console.log(req);
-console.log(type);
+	console.log(type);
     if(type == "user")
         var login = new User({
             username : username,
@@ -76,12 +75,12 @@ console.log(type);
 					console.log("result[0].type: "+result[0].type);
 					console.log("req.session.user.type: "+req.session.admin.type);
 					res.send({code:1, msg:'登录成功', userinfo : user});
-				}				
+				}			
 				switch(result[0]['userstatus'])
 				{
 					case "Valid":
-					case "CloseApply":	
-					case "CloseNotPass":				
+					case "CloseNotPass":
+					case "CloseApply":
 					{						
 						if(type == "user")
 						{
@@ -91,7 +90,7 @@ console.log(type);
 						else
 							alert("无效的用户类型");
 						break
-					}
+					}					
 					case "OpenApply":
 					{
 						//res.locals.status = "fail";

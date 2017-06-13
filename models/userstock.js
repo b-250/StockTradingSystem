@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 
 var pool = mysql.createPool({
-      host : 'tdsql-219vguff.sh.cdb.myqcloud.com',
+      host : '182.254.128.133',
       user : 'group5',
       password :'group5..',
       database:'stockg5',
