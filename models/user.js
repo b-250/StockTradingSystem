@@ -64,7 +64,7 @@ User.prototype.userSave = function save(callback){
     manager_id_card : this.manager_id_card,
     manager_phone : this.manager_phone
   };
-  var INSERT_USER= "INSERT INTO useraccount (USERID,usertype,userstatus,USERNAME,password,id_card,	name,gender,phone,email,address,occupation,education,workplace,	agent_id,business_license,manager_name,manager_id_card,manager_phone) VALUES (0,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+  var INSERT_USER= "INSERT INTO useraccount (USERID,usertype,userstatus,USERNAME,password,id_card,name,gender,phone,email,address,occupation,education,workplace,agent_id,business_license,manager_name,manager_id_card,manager_phone) VALUES (0,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
   pool.getConnection(function(err,connection){
     connection.query(INSERT_USER,[user.type,user.status,user.username,user.password,user.id_card,user.name,user.gender,user.phone,user.email,user.address,user.occupation,user.education,user.workplace,user.agent_id,user.business_license,user.manager_name,user.manager_id_card,user.manager_phone],function(err,result){
       if(err){
@@ -117,14 +117,14 @@ User.prototype.updateInfo  =function(callback){
   };
   
   var UPDATE_INFO =
-  "UPDATE useraccount SET NAME = ?, GENDER = ?, PHONE = ?, EMAIL = ?, ADDRESS = ?, OCCUPATION = ?, EDUCATION = ?,WORKPLACE = ?, BUSINESS_LICENSE = ?,   MANAGER_NAME = ?, MANAGER_ID_CARD = ?, MANAGER_PHONE = ? WHERE USERNAME = ?";
+  "UPDATE useraccount SET USERSTATUS = ?, NAME = ?, GENDER = ?, PHONE = ?, EMAIL = ?, ADDRESS = ?, OCCUPATION = ?, EDUCATION = ?,WORKPLACE = ?, BUSINESS_LICENSE = ?,   MANAGER_NAME = ?, MANAGER_ID_CARD = ?, MANAGER_PHONE = ? WHERE USERNAME = ?";
   
   console.log("username: " + this.username);
   console.log("name: " + this.name);
   console.log("phone: " + this.phone);
   pool.getConnection(function(err,connection){
     connection.query(UPDATE_INFO,
-	[user.name, user.gender, user.phone, user.email, 
+	[user.status, user.name, user.gender, user.phone, user.email, 
 	user.address, user.occupation, user.education, user.workplace, 
 	user.business_license, user.manager_name,
 	user.manager_id_card, user.manager_phone,user.username], function(err,result){

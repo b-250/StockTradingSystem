@@ -119,6 +119,13 @@ router.post("/",function(req, res) {
 						res.send({code: 3, msg: ' * 该账户已销户', userinfo : user});
 						break;
 					}
+					case "OpenReject":
+					{
+						//res.locals.status = "fail";
+						console.log('* 该账户已销户');
+						res.send({code: 3, msg: ' * 该账户已销户', userinfo : user});
+						break;
+					}
 				}				 
 
             }

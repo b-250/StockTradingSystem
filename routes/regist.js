@@ -29,7 +29,8 @@ router.post('/',function(req, res) {
     var manager_id_card	 = req.body.manager_id_card;
     var manager_phone	 = req.body.manager_phone;
 
-    if(card_type > 0){
+    if(card_type > 0)
+	{
         id_card = passport;
     }
     
@@ -37,7 +38,7 @@ router.post('/',function(req, res) {
         username		 : username,
         password		 : password,
         type			 : type,
-        status 			 : status,
+        status 			 : "OpenApply",
         id_card			 : id_card,
         name			 : name,
         gender			 : gender,
@@ -55,16 +56,49 @@ router.post('/',function(req, res) {
     });
 
     //检查用户名是否已经存在
-    newUser.userNum(newUser.username, function (err, results) {
-        if (results != null && results[0]['num'] > 0) {
-            err = ' * 用户名已存在';
+    newUser.userNum(newUser.username, function (err, results) 
+	{
+        if (results != null && results[0]['num'] > 0) 
+		{
+			newUser.userInfo(function(err,result)
+			{
+				if(err)
+				{
+					user = {'username':''};
+					console.log("注册失败");
+					res.send({code:0, msg: err, userinfo : user});
+					
+					return;
+				}
+				else if(result[0]['userstatus'] == "LossPass")
+					newUser.updateInfo(function (err, results) 
+					{
+						console.log("updateInfo function calling");
+						if(err)
+						{
+							user = {'username':''};
+							console.log("注册失败");
+							res.send({code:0, msg: err, userinfo : user});
+							
+							return;
+						}
+						else
+						{
+							res.locals.status = "success";
+							var user = {'username':username};
+							console.log("注册成功");
+							res.send({code:200, msg:'注册成功', userinfo : user});
+						
+						}
+					});
+				else
+					err = ' * 用户名已存在';
+			});
         }
-
         if (err) {
             user = {'username':''};
             console.log("注册失败");
             res.send({code:0, msg: err, userinfo : user});
-            //res.render('index', {errMsg: err });
             return;
         }
         newUser.userSave(function(err,result){
@@ -72,22 +106,18 @@ router.post('/',function(req, res) {
                 user = {'username':''};
                 console.log("注册失败");
                 res.send({code:0, msg: err, userinfo : user});
-                //res.render('index', {errMsg: err });
                 return;
             }
             if(result.insertId > 0){
                 res.locals.status = "success";
                 var user = {'username':username};
                 console.log("注册成功");
-                //req.session.user = user;//保存用户session信息
                 res.send({code:200, msg:'注册成功', userinfo : user});
-                //res.render('index', {errMsg:'' });
             }
             else{
                 user = {'username':''};
                 console.log("注册失败");
                 res.send({code:0, msg: err, userinfo : user});
-                //res.render('index', {errMsg: err });
             }
         });
     });
