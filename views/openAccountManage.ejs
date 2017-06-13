@@ -177,7 +177,11 @@
 					<tr> 					
 					<td><%= data[i].username %></td>
 					<td><%= data[i].name %></td>
-					<td><%= data[i].gender %></td>
+					<% if (data[i].gender == "0") {%>
+						<td> 男 </td>
+					<% }else{ %>
+						<td> 女 </td>
+					<% } %>
 					<td><%= data[i].id_card %></td>
 					<td><%= data[i].phone %></td>
 					 <td> <a href="/openApplyDetail?name=<%= data[i].userid %>">详细</a></td>
