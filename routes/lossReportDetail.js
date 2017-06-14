@@ -3,7 +3,7 @@ var router = express.Router();
 var User = require("../models/loss.js");
 
 router.get('/', function(req, res) {
-
+	var admin = req.session.admin;
 	var username = req.query.username;
 
 	console.log("js-username:"+username);
@@ -11,9 +11,9 @@ router.get('/', function(req, res) {
 	var user=new User({});
 	user.userInfo(username, function(err,result){
 	  if(err){
-		res.render('lossReportDetail', {username:username, errMsg:"", data:""});
+		res.render('lossReportDetail', {username:admin.username, errMsg:"", data:""});
 	  }else{
-		res.render('lossReportDetail', {username:username, errMsg:"", data:result[0], title: 'Express' });
+		res.render('lossReportDetail', {username:admin.username, errMsg:"", data:result[0], title: 'Express' });
 	  }
 	});
 
