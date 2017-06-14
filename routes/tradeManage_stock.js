@@ -4,13 +4,15 @@ var Record = require("../models/record.js");
 
 router.get('/', function(req, res, next) {
 	var username = req.session.admin.username;
-	res.render('tradeManage_stock', {username:username, errMsg:'',data:''});		
+	var type = req.session.admin.type;
+	res.render('tradeManage_stock', {username:username, errMsg:'',data:'',type:type});		
 });
 
 router.post('/', function(req, res) {
 	var user = req.session.admin;	
+	var type = req.session.admin.type;
 	if(user.type == "low")
-		res.render('tradeManage_stock', {username:req.session.admin.username,errMsg:'权限不足，无法查看',data:''});	
+		res.render('tradeManage_stock', {username:req.session.admin.username,errMsg:'权限不足，无法查看',data:'',type:type});	
 	else
 	{
 		var stock_id = req.body.stock_id;	
@@ -20,11 +22,11 @@ router.post('/', function(req, res) {
 		});
 		trans.TransListByCode(trans.code, function(err,result){
 			if(err){
-				res.render('tradeManage_stock', {username:req.session.admin.username,errMsg:""});
+				res.render('tradeManage_stock', {username:req.session.admin.username,errMsg:"",type:type});
 				return;
 			}
 			else{
-				res.render('tradeManage_stock', {username:req.session.admin.username,errMsg:"",data:result});
+				res.render('tradeManage_stock', {username:req.session.admin.username,errMsg:"",data:result,type:type});
 				return;
 			}
 		});	
