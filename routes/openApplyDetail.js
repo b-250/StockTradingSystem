@@ -8,14 +8,15 @@ var displayApplyDetail = require("../models/open.js");
 router.get('/', function(req, res, next) {
 	var admin = req.session.admin;
 	var name = req.query.name;
+	var type = req.session.admin.type;
 	console.log(name);
 	var applyDetail = new displayApplyDetail();
 	applyDetail.openApplyDetail(name, function(err,result){
 		 if(err){
-		res.render('manageOpenAccount', {username:admin.username, errMsg: err, data:[]});
+		res.render('manageOpenAccount', {username:admin.username, errMsg: err, data:[],type:type});
 		return;
 		}
-		res.render('openApplyDetail', { username:admin.username,  errMsg: "",  data:result[0]});
+		res.render('openApplyDetail', { username:admin.username,  errMsg: "",  data:result[0],type:type});
 		console.log(result);
 	});
 

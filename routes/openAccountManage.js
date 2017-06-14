@@ -6,6 +6,7 @@ var displayApply = require("../models/open.js");
 /* GET home page. */
 router.get('/', function(req, res, next) {
   var user = req.session.admin;
+  var type = req.session.admin.type;
   var openApplyUser = new displayApply();
    var data = new Array();
 	
@@ -15,7 +16,7 @@ router.get('/', function(req, res, next) {
 		return;
 		}
 		 console.log(result);   
-		res.render('openAccountManage', { username:user.username, password:user.password,data:result});
+		res.render('openAccountManage', { username:user.username, password:user.password,data:result,type:type});
 
 	 });
 

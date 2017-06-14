@@ -74,7 +74,7 @@ router.post("/",function(req, res) {
 					req.session.admin.type = result[0].type;
 					console.log("result[0].type: "+result[0].type);
 					console.log("req.session.user.type: "+req.session.admin.type);
-					res.send({code:1, msg:'登录成功', userinfo : user});
+					res.send({code:1, msg:'登录成功', userinfo : user,type:result[0].type});
 				}			
 				switch(result[0]['userstatus'])
 				{

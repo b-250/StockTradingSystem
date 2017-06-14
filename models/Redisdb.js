@@ -1,4 +1,4 @@
-
+"use strict";
 var redis = require('redis');
 
 let option = {

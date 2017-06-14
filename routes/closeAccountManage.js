@@ -6,16 +6,16 @@ var User = require('../models/close.js')
 router.get('/',function(req,res){
 	//从session中获取当前登录管理员账号信息
 	var admin=req.session.admin;
-
+	var type = admin.type;
 	var user=new User({});
 	user.userCloseInfo(function(err,result){
 		if(err){
-			res.render('closeAccountManage',{username:admin.username, errMsg:err});
+			res.render('closeAccountManage',{username:admin.username, errMsg:err,type:type});
 			return;
 		}
 		if(result==''){
 			console.log('no close requirement');
-			res.render('closeAccountManage',{username:admin.username, data:[], errMsg:''});
+			res.render('closeAccountManage',{username:admin.username, data:[], errMsg:'',type:type});
 		}
 		else{
 			//待销户用户列表
@@ -25,7 +25,7 @@ router.get('/',function(req,res){
 				data.push(result[i]);
 			}
 			console.log('close requirement list')
-			res.render('closeAccountManage',{username:admin.username, data:data, errMsg:''});
+			res.render('closeAccountManage',{username:admin.username, data:data, errMsg:'',type:type});
 		}
 		console.log(data);
 	});
