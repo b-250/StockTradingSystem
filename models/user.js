@@ -203,7 +203,7 @@ User.prototype.CloseApply = function(callback){
     username : this.username};
   
   var UPDATE_INFO =
-  "UPDATE useraccount SET userstatus = 'Close' WHERE USERNAME = ?";
+  "UPDATE useraccount SET userstatus = 'CloseApply' WHERE USERNAME = ?";
   
   console.log("username: " + this.username);
   

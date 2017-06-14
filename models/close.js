@@ -1,12 +1,5 @@
 var mysql=require('mysql');
 
-/*var pool = mysql.createPool({
-      host : '127.0.0.1',
-      user : 'root',
-      password :'',
-      database:'nodedb',
-      port : 3306
-  });*/
 var pool = mysql.createPool({
       host : '182.254.128.133',
       user : 'group1',
@@ -44,7 +37,7 @@ User.prototype.userClosePass=function(userid,status,callback){
 }
 
 User.prototype.userCloseInfo = function(callback){
-  var SELECT_CLOSE ="SELECT * FROM useraccount WHERE userstatus = 'closeApply'";//销户列表
+  var SELECT_CLOSE ="SELECT * FROM useraccount WHERE userstatus = 'CloseApply'";//销户列表
   pool.getConnection(function(err,connection){
     connection.query(SELECT_CLOSE,function(err,result){
       if (err) {
@@ -70,4 +63,5 @@ User.prototype.userCloseInfoPage=function(userid,callback){
 		});
 	});
 }
+
 module.exports=User;
