@@ -9,16 +9,16 @@ router.get('/',function(req,res){
 	var status=req.query.status;
 	//从session中获取当前登录管理员账号信息
 	var admin=req.session.admin;
-
+	var type = admin.type;
 	var user=new User({});
 	user.userClosePass(userid,status,function(err,result){
 		if(err){
-			res.render('closePass',{username:admin.username, userid:userid, status:status, errMsg:err});
+			res.render('closePass',{username:admin.username, userid:userid, status:status, errMsg:err,type:type});
 			return;
 		}
 		
 		//用户信息详情
-		res.render('closePass',{username:admin.username, userid:userid, status:status});
+		res.render('closePass',{username:admin.username, userid:userid, status:status,type:type});
 	});
 });
 

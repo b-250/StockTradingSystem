@@ -48,6 +48,39 @@ $().ready(function () {
                         $("#user-menu").hide();
                         //alert("done");
                     }
+                    if (result.code==4){
+                        //alert("提示：" + result.msg);
+                        $('#login-modal').modal('show');
+                        $('#register-li').removeClass('active');
+                        $('#register-tab').removeClass('active');
+                        $('#login-tab').addClass('active');
+                        $('#login-li').addClass('active');
+                        $("#login_error").html(" * 挂失申请已通过，请重新注册。");
+                        $("#user-menu").hide();
+                        //alert("done");
+                    }
+                    if (result.code==5){
+                        //alert("提示：" + result.msg);
+                        $('#login-modal').modal('show');
+                        $('#register-li').removeClass('active');
+                        $('#register-tab').removeClass('active');
+                        $('#login-tab').addClass('active');
+                        $('#login-li').addClass('active');
+                        $("#login_error").html(" * 该账户已销户。");
+                        $("#user-menu").hide();
+                        //alert("done");
+                    }
+                    if (result.code==6){
+                        //alert("提示：" + result.msg);
+                        $('#login-modal').modal('show');
+                        $('#register-li').removeClass('active');
+                        $('#register-tab').removeClass('active');
+                        $('#login-tab').addClass('active');
+                        $('#login-li').addClass('active');
+                        $("#login_error").html(" * 开户申请未通过，请重新注册");
+                        $("#user-menu").hide();
+                        //alert("done");
+                    }
                     else if (result.code ==1){
                         alert("登录成功");
                         if(log_type == "admin")
@@ -67,7 +100,6 @@ $().ready(function () {
                             $("#stockmarket").attr('href', 'http://112.74.124.145:3002/?session=' + result.sessionid);
                             $("#tradeaccount").attr('href', 'http://112.74.124.145:3001/?session=' + result.sessionid);
                         }
-                        
                     }
                 }
             )

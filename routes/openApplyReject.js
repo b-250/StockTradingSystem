@@ -7,6 +7,7 @@ var openApplyProcess = require("../models/open.js");
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	var user = req.session.admin;
+	var type = req.session.admin.type;
 	var id = req.query.id;
 	 console.log("here"); 
 	var process = new openApplyProcess();
@@ -17,7 +18,7 @@ router.get('/', function(req, res, next) {
 		}
 		console.log(result);			
 	});
-	res.render('openApplyReject', { username:user.username});
+	res.render('openApplyReject', { username:user.username,type:type});
 });
 module.exports = router;
 

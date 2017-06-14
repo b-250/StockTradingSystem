@@ -39,9 +39,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="/" class="logo">
+    <a href="/mainManage" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini">Stock</span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>股票系统管理</b></span>
     </a>
@@ -95,10 +95,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
-          <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
+         
         </ul>
       </div>
     </nav>
@@ -117,21 +114,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="pull-left info">
           <p><%=username %></p>
           <!-- Status -->
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <a href="#"><i class="fa fa-circle text-success"></i> 
+		  <% if (type == "low") {%>
+				<td> 当前账户权限：低级 </td>
+			<% }else{ %>
+				<td> 当前账户权限：高级 </td>
+			<% } %>
+		  </a>
         </div>
       </div>
 
-      <!-- search form (Optional) -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="查找交易记录...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
-      <!-- /.search form -->
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu">
@@ -204,10 +196,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Anything you want
+      <b>A1 Group</b> V3.0
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2017 <a href="#">zhaoziji</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2017 <a href="#">Group A</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->

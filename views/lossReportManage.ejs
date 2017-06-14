@@ -36,10 +36,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Main Header -->
         <header class="main-header">
         <!-- Logo -->
-        <a href="/" class="logo">
+        <a href="/mainManage" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini">
-        <b>A</b>LT</span> 
+        Stock</span> 
         <!-- logo for regular state and mobile devices -->
          
         <span class="logo-lg">
@@ -89,12 +89,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 							  </li>
 							</ul>
 						  </li>
-                <!-- Control Sidebar Toggle Button -->
-                <li>
-                    <a href="#" data-toggle="control-sidebar">
-                        <i class="fa fa-gears"></i>
-                    </a>
-                </li>
+                
             </ul>
         </div></nav></header>
         <!-- Left side column. contains the logo and sidebar -->
@@ -110,22 +105,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <p><%=username %></p>
                         <!-- Status -->
                         <a href="#">
-                        <i class="fa fa-circle text-success"></i> Online</a>
+                        <i class="fa fa-circle text-success"></i>
+						<% if (type == "low") {%>
+							<td> 当前账户权限：低级 </td>
+						<% }else{ %>
+							<td> 当前账户权限：高级 </td>
+						<% } %>
+						</a>
                     </div>
                 </div>
-                <!-- search form (Optional) -->
-                <form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="查找交易记录..." /> 
-                    <span class="input-group-btn">
-                        <button type="submit" name="search" id="search-btn" class="btn btn-flat">
-                            <span class="input-group-btn">
-                                <i class="fa fa-search"></i>
-                            </span>
-                        </button>
-                    </span></div>
-                </form>
-                <!-- /.search form -->
                 <!-- Sidebar Menu -->
                 <ul class="sidebar-menu">
                     <li class="header">交易系统管理</li>
@@ -168,7 +156,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <small>查看用户交易信息</small></h1>
                 <ol class="breadcrumb">
                     <li>
-                        <a href="mainManage.html">
+                        <a href="/mainManage">
                         <i class="fa fa-dashboard"></i> 管理员</a>
                     </li>
                     <li>
@@ -190,10 +178,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <table id="example2" class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th>申请账号</th>
-                                            <th>身份证号</th>
-                                            <th>待审核状态</th>
-                                            <th>处理意见</th>
+                                            <th>用户名</th>
+                                            <th>申请人姓名</th>
+                                            <th>性别</th>
+                                            <th>证件号</th>
+											<th>联系电话</th>
+											<th>查看详情</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -202,14 +192,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <td>
                                                 <%= data[i]["username"] %>
                                             </td>
+											<td>
+                                                <%= data[i].name %>
+                                            </td>
+											<% if (data[i].gender == "0") {%>
+												<td> 男 </td>
+											<% }else{ %>
+												<td> 女 </td>
+											<% } %>
                                             <td>
                                                 <%= data[i].id_card %>
                                             </td>
                                             <td>
-                                                <%= data[i].userstatus %>
+                                                <%= data[i].phone %>
                                             </td>
                                             <td>
-												<a href='/lossReportDetail?username=<%= data[i]["username"]%>'>查看详细</a>
+												<a href='/lossReportDetail?username=<%= data[i]["username"]%>'>详情</a>
                                             </td>
                                         </tr><% } %>
                                     </tbody>
@@ -230,10 +228,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Main Footer -->
         <footer class="main-footer">
         <!-- To the right -->
-        <div class="pull-right hidden-xs">Anything you want</div>
+        <div class="pull-right hidden-xs"><b>A1 Group</b> V3.0</div>
         <!-- Default to the left -->
         <strong>Copyright � 2017 
-        <a href="#">zhaoziji</a>.</strong> All rights reserved.</footer>
+        <a href="#">Group A</a>.</strong> All rights reserved.</footer>
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Create the tabs -->

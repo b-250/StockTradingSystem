@@ -1,1 +1,11 @@
-#挂失申请处身份证格式验证
+#交易系统管理用户搜索数据量太大
+
+（#挂失界面变更）
+Valid
+OpenApply
+OpenReject
+CloseApply
+CloseNotPass
+ClosePass
+LossReport
+LossPass
