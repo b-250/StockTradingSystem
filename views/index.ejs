@@ -52,7 +52,7 @@
         window.onresize = function()
         {
             var obj = document.getElementById("mainp");
-            var h = document.documentElement.clientHeight;
+            var h = document.documentElement.clientHeight - 51;
             obj.style.setProperty('height', h.toString() + 'px', 'important');
             //alert(obj.style.height);
         }
@@ -60,7 +60,7 @@
         function setsession()
         {
             var obj = document.getElementById("mainp");
-            var h = document.documentElement.clientHeight;
+            var h = document.documentElement.clientHeight - 51;
             obj.style.setProperty('height', h.toString() + 'px', 'important');
             if($.cookie('sessionid'))
             {
@@ -88,7 +88,7 @@
 <div class="wrapper" >
 
     <header class="main-header">
-        <nav class="navbar navbar-fixed-top">
+        <nav class="navbar navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
                     <a href="/" class="navbar-brand"><b>StockTrade</b></a>
