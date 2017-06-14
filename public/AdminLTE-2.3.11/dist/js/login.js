@@ -33,7 +33,7 @@ $().ready(function () {
                         $('#register-tab').removeClass('active');
                         $('#login-tab').addClass('active');
                         $('#login-li').addClass('active');
-                        $("#login_error").html(" * 开户申请尚未通过");
+                        $("#login_error").html(" * 开户申请尚未通过，请耐心等待");
                         $("#user-menu").hide();
                         //alert("done");
                     }
@@ -55,7 +55,7 @@ $().ready(function () {
                         $('#register-tab').removeClass('active');
                         $('#login-tab').addClass('active');
                         $('#login-li').addClass('active');
-                        $("#login_error").html(" * 挂失申请已通过，请重新注册。");
+                        $("#login_error").html(" * 挂失申请已通过，请重新注册");
                         $("#user-menu").hide();
                         //alert("done");
                     }
@@ -66,7 +66,7 @@ $().ready(function () {
                         $('#register-tab').removeClass('active');
                         $('#login-tab').addClass('active');
                         $('#login-li').addClass('active');
-                        $("#login_error").html(" * 该账户已销户。");
+                        $("#login_error").html(" * 用户名或密码错误");
                         $("#user-menu").hide();
                         //alert("done");
                     }
