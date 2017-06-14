@@ -172,10 +172,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <table id="example2" class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th>申请账号</th>
-                                            <th>身份证号</th>
-                                            <th>待审核状态</th>
-                                            <th>处理意见</th>
+                                            <th>用户名</th>
+                                            <th>申请人姓名</th>
+                                            <th>性别</th>
+                                            <th>证件号</th>
+											<th>联系电话</th>
+											<th>查看详情</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -184,14 +186,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <td>
                                                 <%= data[i]["username"] %>
                                             </td>
+											<td>
+                                                <%= data[i].name %>
+                                            </td>
+											<% if (data[i].gender == "0") {%>
+												<td> 男 </td>
+											<% }else{ %>
+												<td> 女 </td>
+											<% } %>
                                             <td>
                                                 <%= data[i].id_card %>
                                             </td>
                                             <td>
-                                                <%= data[i].userstatus %>
+                                                <%= data[i].phone %>
                                             </td>
                                             <td>
-												<a href='/lossReportDetail?username=<%= data[i]["username"]%>'>查看详细</a>
+												<a href='/lossReportDetail?username=<%= data[i]["username"]%>'>详情</a>
                                             </td>
                                         </tr><% } %>
                                     </tbody>
