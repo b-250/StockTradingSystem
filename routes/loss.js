@@ -40,7 +40,14 @@ router.post('/',function(req, res) {
 				res.render('loss', {errMsg:"用户信息有误"});
             }
 			else if(result[0].id_card == idnumber
-			 && result[0].name 	 == name){
+			 && result[0].name 	 == name && result[0].userstatus == "LossReport")
+			 {
+				 console.log('* 用户信息有误');				
+				res.render('loss', {errMsg:"您已提交过挂失申请，请耐心等待管理员审核"});
+			 }
+			else if(result[0].id_card == idnumber
+			 && result[0].name 	 == name)
+			 {
 				lossReport.lossReport(function (err, results) {
 				if(err){
 					console.log("invalid Apply to close account");					
