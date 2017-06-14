@@ -64,7 +64,7 @@ Record.prototype.recordInfo = function(callback){
 
 //根据用户名得到交易
 Record.prototype.TransListByAccount = function(account, callback) {
-    var SELECT_TRANS = "SELECT * FROM traderecords WHERE purchaser = ? or seller = ?";
+    var SELECT_TRANS = "SELECT * FROM traderecords WHERE purchaser = ? OR seller = ?";
 	pool.getConnection(function(err,connection){
 		console.log("TransListByAccount_pool");
 		connection.query(SELECT_TRANS,[account,account],function(err,result){

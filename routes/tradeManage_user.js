@@ -15,19 +15,19 @@ router.post('/', function(req, res) {
 		res.render('tradeManage_user', {username:req.session.admin.username,errMsg:'权限不足，无法查看',data:''});	
 	else
 	{
-		var username = req.body.username;	
-		//console.log(username + ' in function');
+		var searchname = req.body.username;	
+		console.log(searchname + ' in function');
 		var trans = new Record({
-				username : username
+				username : searchname
 			});
 		trans.TransListByAccount(trans.username, function(err,result){
-			//console.log("data");
+			console.log("data");
 			if(err){
 				res.render('tradeManage_user', {username:req.session.admin.username,errMsg:""});
 				return;
 			}
 			else{
-				//console.log("data");
+				console.log("data");
 				res.render('tradeManage_user', {username:req.session.admin.username,errMsg:"",data:result});
 				return;
 			}

@@ -109,21 +109,21 @@ router.post("/",function(req, res) {
 					{
 						//res.locals.status = "fail";
 						console.log('* 账户已挂失');
-						res.send({code: 3, msg: ' * 账户已挂失', userinfo : user});
+						res.send({code: 4, msg: ' * 账户已挂失', userinfo : user});
 						break;
 					}
 					case "ClosePass":
 					{
 						//res.locals.status = "fail";
 						console.log('* 该账户已销户');
-						res.send({code: 3, msg: ' * 该账户已销户', userinfo : user});
+						res.send({code: 5, msg: ' * 该账户已销户', userinfo : user});
 						break;
 					}
 					case "OpenReject":
 					{
 						//res.locals.status = "fail";
-						console.log('* 该账户已销户');
-						res.send({code: 3, msg: ' * 该账户已销户', userinfo : user});
+						console.log('* 开户申请未通过，请重新注册');
+						res.send({code: 6, msg: ' * 开户申请未通过，请重新注册', userinfo : user});
 						break;
 					}
 				}				 
