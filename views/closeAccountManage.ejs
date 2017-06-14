@@ -156,10 +156,11 @@
                 <thead>
                 <tr>
                   <th>用户名</th>
-                  <th>姓名</th>
+                  <th>申请人姓名</th>
                   <th>性别</th>
-                  <th>身份证号</th>
-                  <th>详情</th>
+                  <th>证件号</th>
+				  <th>联系电话</th>
+                  <th>查看详情</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -173,6 +174,7 @@
 							<td> 女 </td>
 						<% } %>
                         <td><%= data[i]["id_card"] %></td>
+						<td><%= data[i]["phone"] %></td>
                         <!-- <td><a>通过</a>&nbsp;&nbsp;<a>不通过</a></td> -->
                         <td><a href='/closeInfoPage?userid=<%= data[i]["userid"] %>'>详情</a></td>
                       </tr>
