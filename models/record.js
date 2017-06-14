@@ -47,9 +47,9 @@ Record.prototype.recordInfo = function(callback){
 		type : this.type
 	};
 	console.log(record.username);
-	var SELECT_RECORD ="SELECT * FROM traderecords WHERE purchaser = ?";
+	var SELECT_RECORD ="SELECT * FROM traderecords WHERE purchaser = ?  OR seller = ?";
 	pool.getConnection(function(err,connection){
-			connection.query(SELECT_RECORD,[record.username],function(err,result){		
+			connection.query(SELECT_RECORD,[record.username,record.username],function(err,result){		
 				console.log(SELECT_RECORD);
 				if (err) {
 					console.log("SELECT_RECORD Error: " + err.message);
