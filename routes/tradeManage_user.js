@@ -12,7 +12,7 @@ router.post('/', function(req, res) {
 	//console.log("I'm here.");
 	//console.log(user.type);
 	if(user.type == "low")
-		res.render('tradeManage_user', {errMsg:'权限不足，无法查看',data:''});	
+		res.render('tradeManage_user', {username:req.session.admin.username,errMsg:'权限不足，无法查看',data:''});	
 	else
 	{
 		var username = req.body.username;	
@@ -23,12 +23,12 @@ router.post('/', function(req, res) {
 		trans.TransListByAccount(trans.username, function(err,result){
 			//console.log("data");
 			if(err){
-				res.render('tradeManage_user', {errMsg:""});
+				res.render('tradeManage_user', {username:req.session.admin.username,errMsg:""});
 				return;
 			}
 			else{
 				//console.log("data");
-				res.render('tradeManage_user', {errMsg:"",data:result});
+				res.render('tradeManage_user', {username:req.session.admin.username,errMsg:"",data:result});
 				return;
 			}
 		});

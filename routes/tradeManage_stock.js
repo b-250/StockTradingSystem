@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res) {
 	var user = req.session.admin;	
 	if(user.type == "low")
-		res.render('tradeManage_stock', {errMsg:'权限不足，无法查看',data:''});	
+		res.render('tradeManage_stock', {username:req.session.admin.username,errMsg:'权限不足，无法查看',data:''});	
 	else
 	{
 		var stock_id = req.body.stock_id;	
@@ -20,11 +20,11 @@ router.post('/', function(req, res) {
 		});
 		trans.TransListByCode(trans.code, function(err,result){
 			if(err){
-				res.render('tradeManage_stock', {errMsg:""});
+				res.render('tradeManage_stock', {username:req.session.admin.username,errMsg:""});
 				return;
 			}
 			else{
-				res.render('tradeManage_stock', {errMsg:"",data:result});
+				res.render('tradeManage_stock', {username:req.session.admin.username,errMsg:"",data:result});
 				return;
 			}
 		});	
