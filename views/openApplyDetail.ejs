@@ -156,7 +156,11 @@
               <table id="example2" class="table table-bordered table-hover">
                 <tr>
                   <th>账户类型</th>
-                  <td><%= data["usertype"] %></td>
+					<% if (data["usertype"] == "0") {%>
+						<td> 自然人 </td>
+					<% }else{ %>
+						<td> 法人 </td>
+					<% } %>
                 </tr>
                 <tr>
                   <th>用户名</th>

@@ -150,28 +150,32 @@ desired effect
                 <thead>
              
                 <tr>
-                  <th> 股票名称 </th>
-                  <th> 交易日期 </th>
-                  <th> 交易时间 </th>
-                  <th> 成交价格(元) </th>
-                  <th> 涨跌幅 </th>
-                  <th> 成交手 </th>
-                  <th> 成交金额(元) </th>
-                  <th> 买卖类型 </th>
+					<th> 股票名称 </th>
+					<th> 交易日期 </th>
+					<th> 交易时间 </th>
+					<th> 成交价格(元) </th>
+					<th> 涨跌幅 </th>
+					<th> 成交手 </th>
+					<th> 成交金额(元) </th>
+					<th> 买卖类型 </th>
+					<th> 买家 </th>
+					<th> 卖家 </th>
                 </tr> 
 				</thead>
                 <tbody>    
                 <% num = (data.length>50)? 50 : data.length %>
                 <% for(var i=0;i<num;i++){ %>
                   <tr>
-                    <td> <%= data[i].code %></td>
-                    <td> <%= data[i].date %> </td>
-                    <td> <%= data[i].time %> </td>
-                    <td> <%= data[i].price %> </td>
-                    <td> <%= data[i].change %> </td>
-                    <td> <%= data[i].volume %> </td>
-                    <td> <%= data[i].amount %> </td>
-                    <td> <%= data[i].type %> </td>
+						<td> <%= data[i].code %></td>
+						<td> <%= data[i].date %> </td>
+						<td> <%= data[i].time %> </td>
+						<td> <%= data[i].price %> </td>
+						<td> <%= data[i].change %> </td>
+						<td> <%= data[i].volume %> </td>
+						<td> <%= data[i].amount %> </td>
+						<td> <%= data[i].type %> </td>
+						<td> <%= data[i].purchaser %> </td>
+						<td> <%= data[i].seller %> </td>
                   </tr> 
 
                 <%}%>
