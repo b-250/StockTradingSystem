@@ -91,6 +91,27 @@ router.post('/',function(req, res) {
 						
 						}
 					});
+				else if(result[0]['userstatus'] == "OpenReject")
+					newUser.updateInfo(function (err, results) 
+					{
+						console.log("updateInfo function calling");
+						if(err)
+						{
+							user = {'username':''};
+							console.log("注册失败");
+							res.send({code:0, msg: err, userinfo : user});
+							
+							return;
+						}
+						else
+						{
+							res.locals.status = "success";
+							var user = {'username':username};
+							console.log("注册成功");
+							res.send({code:200, msg:'注册成功', userinfo : user});
+						
+						}
+					});
 				else
 					err = ' * 用户名已存在';
 			});
